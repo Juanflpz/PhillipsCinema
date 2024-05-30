@@ -1,5 +1,4 @@
 ## Phillips Cinema
-
 ### Project Overview
 
 This project was created to establish a comprehensive platform for managing both the functional and non-functional requirements that define the business model of a standard cinema.
