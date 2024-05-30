@@ -11,5 +11,5 @@ presentación.
 Project created to establish a platform to manage all the functional and not functional requisites that work together 
 to define the business model of a normal cinema.
 
-Project written in Java and build along with Gradle. This project includes two modules: Business for the logic and 
-Presentation for the graphic interface.
+Project written in Java and built along with Gradle. This project includes two modules: Business for the logic business 
+and Presentation for the graphic interface.
