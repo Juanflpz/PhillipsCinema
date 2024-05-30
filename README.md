@@ -1,15 +1,31 @@
 ## Phillips Cinema
 
-Proyecto que busca establecer una plataforma para gestionar todos los requisitos funcionales y no funcionales que 
-definen la lógica de negocio de un cine.
+### Project Overview
 
-Proyecto escrito en Java y construido con Gradle. Este proyecto consta de dos módulos: Uno de negocio y otro de 
-presentación.
+This project was created to establish a comprehensive platform for managing both the functional and non-functional requirements that define the business model of a standard cinema.
 
---------------------------------------------
+### Technologies Used
 
-Project created to establish a platform to manage all the functional and not functional requisites that work together 
-to define the business model of a normal cinema.
+- **Language**: Java
+- **Build Tool**: Gradle
 
-Project written in Java and built along with Gradle. This project includes two modules: Business for the logic business 
-and Presentation for the graphic interface.
+### Modules
+
+The project is divided into two main modules:
+
+1. **Business**: Handles the core business logic, including ticket booking, schedule management, and customer service.
+2. **Presentation**: Manages the graphical user interface, providing an intuitive experience for both cinema staff and customers.
+
+### Getting Started
+
+#### Prerequisites
+
+- Java 11
+- Gradle 6.0 or higher
+
+#### Building the Project
+
+To build the project, navigate to the root directory and run:
+
+```sh
+./gradlew build
