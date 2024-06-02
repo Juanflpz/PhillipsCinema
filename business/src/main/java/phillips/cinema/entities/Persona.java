@@ -2,12 +2,10 @@ package phillips.cinema.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -32,4 +30,10 @@ public class Persona implements Serializable {
 
     @ElementCollection
     private Map<String, String> telefonos;
+
+    @ManyToOne
+    private Ciudad ciudad;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Prestamo> prestamos;
 }

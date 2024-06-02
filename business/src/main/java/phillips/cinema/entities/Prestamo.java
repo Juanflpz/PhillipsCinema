@@ -2,14 +2,11 @@ package phillips.cinema.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Objects;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,4 +23,9 @@ public class Prestamo implements Serializable {
     private LocalDateTime fecha_prestamo;
     private LocalDate fecha_devolucion;
 
+    @ManyToOne
+    private Persona persona;
+
+    @ManyToMany
+    private List<Libro> libros;
 }

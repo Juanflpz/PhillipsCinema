@@ -2,14 +2,10 @@ package phillips.cinema.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.validation.constraints.Positive;
+import javax.persistence.*;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.List;
 
 @Entity
 @Getter
@@ -33,4 +29,10 @@ public class Libro implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Genero genero;
+
+    @ManyToMany(mappedBy = "libros")
+    private List<Prestamo> prestamos;
+
+    @ManyToMany
+    private List<Autor> autores;
 }
