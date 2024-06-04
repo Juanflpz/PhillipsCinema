@@ -22,7 +22,7 @@ public class PhoneNumber implements Serializable {
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
-    private CityAdmin cityAdmin;
+    private CityAdmin admin;
 
     @ManyToOne
     private Client client;

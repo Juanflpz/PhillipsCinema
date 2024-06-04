@@ -31,10 +31,15 @@ public class MovieTheater implements Serializable {
     @Column(nullable = false)
     private Integer columns;
 
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<MovieTheaterType> types = new ArrayList<>();
+    @ElementCollection(targetClass = MovieTheaterType.class) //Indica que types es una colección de elementos básicos o embebidos de MovieTheaterType.
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "movie_theater_types", joinColumns = @JoinColumn(name = "movie_theater_id")) //tabla y key del join
+    @Column(name = "type", nullable = false)
+    private List<MovieTheaterType> movie_theater_types = new ArrayList<>();
 
     //RELATIONS------------------------------------------------------
+    @ManyToOne
+    private Theater theater;
 
     //METHODS--------------------------------------------------------
 }

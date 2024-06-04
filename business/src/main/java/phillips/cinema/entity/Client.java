@@ -28,7 +28,7 @@ public class Client extends Person implements Serializable {
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "client_image")
-    private Map<String, String> imagenPerfil = new HashMap<>();
+    private Map<String, String> profileImage = new HashMap<>();
 
     @ElementCollection
     @Column(name = "year")
@@ -38,9 +38,19 @@ public class Client extends Person implements Serializable {
     @Column(nullable = false)
     private Integer level;
 
-    private LocalDate fechaNacimiento;
+    private LocalDate birthDate;
 
     //RELATIONS------------------------------------------------------
+    @OneToMany(mappedBy = "client")
+    private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
+    @OneToMany(mappedBy = "client")
+    private List<Review> reviews = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    private List<ClientCoupon> coupons = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    private List<Purchase> purchases = new ArrayList<>();
     //METHODS--------------------------------------------------------
 }

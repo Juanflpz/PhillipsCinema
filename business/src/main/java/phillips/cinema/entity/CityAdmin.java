@@ -27,9 +27,17 @@ public class CityAdmin extends Person implements Serializable {
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "admin_image")
-    private Map<String, String> imagenPerfil = new HashMap<>();
+    private Map<String, String> profileImage = new HashMap<>();
 
     //RELATIONS------------------------------------------------------
+    @OneToOne
+    private City city;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Theater> theaters = new ArrayList<>();
+
+    @OneToMany(mappedBy = "admin")
+    private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
 }

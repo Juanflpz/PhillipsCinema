@@ -34,6 +34,8 @@ public class Purchase implements Serializable {
     private LocalDate purchaseDate;
 
     //RELATIONS------------------------------------------------------
+    @ManyToOne
+    private Client client;
 
     //METHODS--------------------------------------------------------
 }

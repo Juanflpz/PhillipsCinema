@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -27,6 +29,10 @@ public class City implements Serializable {
     private Department type;
 
     //RELATIONS------------------------------------------------------
+    @OneToMany(mappedBy = "city")
+    private List<Theater> theaters = new ArrayList<>();
 
+    @OneToOne(mappedBy = "city")
+    private CityAdmin admin;
     //METHODS--------------------------------------------------------
 }

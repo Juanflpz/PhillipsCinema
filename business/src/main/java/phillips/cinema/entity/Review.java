@@ -32,6 +32,7 @@ public class Review implements Serializable {
     private LocalDate purchaseDate;
 
     //RELATIONS------------------------------------------------------
-
+    @ManyToOne
+    private Client client;
     //METHODS--------------------------------------------------------
 }

@@ -6,6 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -38,6 +40,8 @@ public class Coupon implements Serializable {
     private CouponType type;
 
     //RELATIONS------------------------------------------------------
+    @OneToMany(mappedBy = "coupon")
+    private List<ClientCoupon> clientCoupons = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
 }
