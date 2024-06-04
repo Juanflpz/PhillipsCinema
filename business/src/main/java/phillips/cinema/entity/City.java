@@ -13,6 +13,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class City implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +25,8 @@ public class City implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Department type;
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

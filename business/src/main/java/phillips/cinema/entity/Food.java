@@ -16,7 +16,7 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Food implements Serializable {
-    // Atributos -----------------------------------------------------------------
+    //ATTRIBUTES-----------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -45,4 +45,8 @@ public class Food implements Serializable {
     @Column(name = "imageURL")
     @CollectionTable(name = "food_image")
     private Map<String, String> image = new HashMap<>();
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

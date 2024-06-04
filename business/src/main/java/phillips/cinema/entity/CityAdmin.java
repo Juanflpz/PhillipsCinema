@@ -21,10 +21,15 @@ import java.util.Map;
 @Setter
 @ToString(callSuper = true)
 public class CityAdmin extends Person implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE) //la colección debe ser cargada de forma inmediata (no perezosa).
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "admin_image")
     private Map<String, String> imagenPerfil = new HashMap<>();
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

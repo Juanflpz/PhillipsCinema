@@ -13,6 +13,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Theater implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -25,4 +26,8 @@ public class Theater implements Serializable {
     @Column(length = 50, nullable = false)
     @NonNull
     private String address;
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

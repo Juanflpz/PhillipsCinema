@@ -18,6 +18,7 @@ import java.util.Map;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Movie implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -59,7 +60,10 @@ public class Movie implements Serializable {
     @CollectionTable(name = "pelicula_imagen")
     private Map<String, String> imagen = new HashMap<>();
 
+    //RELATIONS------------------------------------------------------
     @ManyToMany(mappedBy = "movies")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Genre> genres = new ArrayList<>();
+
+    //METHODS--------------------------------------------------------
 }

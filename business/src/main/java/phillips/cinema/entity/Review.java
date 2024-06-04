@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Review implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -29,4 +30,8 @@ public class Review implements Serializable {
     @Column(nullable = false)
     @NonNull
     private LocalDate purchaseDate;
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

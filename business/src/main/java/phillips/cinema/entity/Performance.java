@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Performance implements Serializable {
-    // Atributos -----------------------------------------------------------------
+    //ATTRIBUTES-----------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -31,7 +31,7 @@ public class Performance implements Serializable {
     @Column(nullable = false)
     private Float price;
 
-    // Relaciones -----------------------------------------------------------------
+    //RELATIONS-----------------------------------------------------------------
     @OneToMany(mappedBy = "performance")
     @ToString.Exclude
     private List<Purchase> purchases = new ArrayList<>();
@@ -44,4 +44,6 @@ public class Performance implements Serializable {
 
     @ManyToOne
     private Schedule schedule;
+
+    //METHODS----------------------------------------------------------------
 }

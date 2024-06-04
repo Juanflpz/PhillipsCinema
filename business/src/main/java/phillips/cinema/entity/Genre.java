@@ -1,6 +1,7 @@
 package phillips.cinema.entity;
 
 import lombok.*;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Genre implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -23,6 +25,9 @@ public class Genre implements Serializable {
     @NonNull
     private String name;
 
+    //RELATIONS------------------------------------------------------
     @ManyToMany
     private List<Movie> movies = new ArrayList<>();
+
+    //METHODS--------------------------------------------------------
 }

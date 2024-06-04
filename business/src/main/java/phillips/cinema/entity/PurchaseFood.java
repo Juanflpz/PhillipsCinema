@@ -12,7 +12,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class PurchaseFood implements Serializable {
-    // Atributos -----------------------------------------------------------------
+    //ATTRIBUTES-----------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -24,7 +24,7 @@ public class PurchaseFood implements Serializable {
     @Column(nullable = false)
     private Integer purchasedUnits;
 
-    // Relaciones ------------------------------------------------------------------------------------------
+    //RELATIONS------------------------------------------------------------------------------------------
     @ManyToOne
     @NonNull
     private Purchase purchase;
@@ -32,4 +32,6 @@ public class PurchaseFood implements Serializable {
     @ManyToOne
     @NonNull
     private Food food;
+
+    //METHODS-----------------------------------------------------------------------------------
 }

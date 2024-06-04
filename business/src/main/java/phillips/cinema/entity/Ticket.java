@@ -12,7 +12,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Ticket implements Serializable {
-    // Atributos -----------------------------------------------------------------
+    //ATTRIBUTES-----------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -27,4 +27,8 @@ public class Ticket implements Serializable {
 
     @Column(nullable = false)
     private Integer column;
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

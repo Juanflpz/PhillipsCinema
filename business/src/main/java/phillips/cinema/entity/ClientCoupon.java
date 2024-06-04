@@ -12,7 +12,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ClientCoupon implements Serializable {
-    // Atributos ------------------------------------------------------------------------------------
+    // ATTRIBUTES------------------------------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -22,7 +22,7 @@ public class ClientCoupon implements Serializable {
     @Column(length = 20, nullable = false)
     private CouponState estado = CouponState.AVAILABLE;
 
-    // Relaciones -----------------------------------------------------------------------------------
+    //RELATIONS-----------------------------------------------------------------------------------
     @ManyToOne
     @NonNull
     private Client client;
@@ -33,4 +33,6 @@ public class ClientCoupon implements Serializable {
 
     @OneToOne
     private Purchase purchase;
+
+    //METHODS--------------------------------------------------------------------------------------
 }

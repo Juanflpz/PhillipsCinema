@@ -16,7 +16,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Schedule implements Serializable {
-    // Atributos ---------------------------------------------------------------
+    //ATTRIBUTES---------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -30,8 +30,10 @@ public class Schedule implements Serializable {
     @NonNull
     private LocalTime hour;
 
-    // Relacion -----------------------------------------------------------------
+    //RELATIONS-----------------------------------------------------------------
     @OneToMany(mappedBy = "schedule")
     @ToString.Exclude
     private List<Performance> performances = new ArrayList<>();
+
+    //METHODS-------------------------------------------------------------------
 }

@@ -16,7 +16,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class MovieTheater implements Serializable {
-    // Atributos -----------------------------------------------------------------
+    //ATTRIBUTES-----------------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -33,4 +33,8 @@ public class MovieTheater implements Serializable {
 
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<MovieTheaterType> types = new ArrayList<>();
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }

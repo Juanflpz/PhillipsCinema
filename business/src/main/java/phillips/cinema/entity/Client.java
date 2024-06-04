@@ -22,6 +22,7 @@ import java.util.Map;
 @Setter
 @ToString(callSuper = true)
 public class Client extends Person implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE) //la colección debe ser cargada de forma inmediata (no perezosa).
     @MapKeyColumn(name = "publicIdImage")
@@ -38,4 +39,8 @@ public class Client extends Person implements Serializable {
     private Integer level;
 
     private LocalDate fechaNacimiento;
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }
