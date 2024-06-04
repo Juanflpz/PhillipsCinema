@@ -17,4 +17,12 @@ public class Theater implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Integer id;
+
+    @Column(length = 50, nullable = false)
+    @NonNull
+    private String name;
+
+    @Column(length = 50, nullable = false)
+    @NonNull
+    private String address;
 }

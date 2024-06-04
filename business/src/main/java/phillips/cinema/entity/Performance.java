@@ -2,7 +2,10 @@ package phillips.cinema.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -10,5 +13,35 @@ import javax.persistence.Entity;
 @Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Performance {
+public class Performance implements Serializable {
+    // Atributos -----------------------------------------------------------------
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    private Integer id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private PerformanceType type;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10, nullable = false)
+    private PerformanceState state;
+
+    @Column(nullable = false)
+    private Float price;
+
+    // Relaciones -----------------------------------------------------------------
+    @OneToMany(mappedBy = "performance")
+    @ToString.Exclude
+    private List<Purchase> purchases = new ArrayList<>();
+
+    @ManyToOne
+    private Movie movie;
+
+    @ManyToOne
+    private MovieTheater movieTheater;
+
+    @ManyToOne
+    private Schedule schedule;
 }

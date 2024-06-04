@@ -1,16 +1,11 @@
 package phillips.cinema.entity;
 
 import lombok.*;
-import phillips.cinema.entities.Autor;
-import phillips.cinema.entities.Genero;
-import phillips.cinema.entities.Prestamo;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Getter
