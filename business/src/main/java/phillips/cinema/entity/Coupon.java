@@ -1,6 +1,7 @@
 package phillips.cinema.entity;
 
 import lombok.*;
+import phillips.cinema.entity.enums.CouponType;
 
 import javax.persistence.*;
 import javax.validation.constraints.Positive;

@@ -3,6 +3,7 @@ package phillips.cinema.entity;
 import lombok.*;
 import javax.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
+import phillips.cinema.entity.enums.PersonState;
 
 import javax.persistence.*;
 import java.io.Serializable;

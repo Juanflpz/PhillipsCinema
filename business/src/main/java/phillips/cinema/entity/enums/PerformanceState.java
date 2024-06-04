@@ -1,4 +1,4 @@
-package phillips.cinema.entity;
+package phillips.cinema.entity.enums;
 
 public enum PerformanceState {
     AVAILABLE,

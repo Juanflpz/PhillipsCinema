@@ -2,6 +2,7 @@ package phillips.cinema.entity;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
+import phillips.cinema.entity.enums.Department;
 
 import javax.persistence.*;
 import java.io.Serializable;

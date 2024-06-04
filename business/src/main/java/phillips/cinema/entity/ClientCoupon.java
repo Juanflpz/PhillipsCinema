@@ -1,6 +1,7 @@
 package phillips.cinema.entity;
 
 import lombok.*;
+import phillips.cinema.entity.enums.CouponState;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,6 +1,8 @@
 package phillips.cinema.entity;
 
 import lombok.*;
+import phillips.cinema.entity.enums.PerformanceState;
+import phillips.cinema.entity.enums.PerformanceType;
 
 import javax.persistence.*;
 import java.io.Serializable;
