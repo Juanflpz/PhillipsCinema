@@ -3,9 +3,7 @@ package phillips.cinema.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Positive;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
