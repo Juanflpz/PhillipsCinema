@@ -12,10 +12,20 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class PhoneNumber implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @EqualsAndHashCode.Include
     private Integer id;
 
     @Enumerated(EnumType.STRING)
     private PhoneType type;
+
+    //RELATIONS------------------------------------------------------
+    @ManyToOne
+    private CityAdmin cityAdmin;
+
+    @ManyToOne
+    private Client client;
+
+    //METHODS--------------------------------------------------------
 }

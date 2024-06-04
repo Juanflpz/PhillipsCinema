@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Purchase implements Serializable {
+    //ATTRIBUTES------------------------------------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
@@ -31,4 +32,8 @@ public class Purchase implements Serializable {
     @Column(nullable = false)
     @NonNull
     private LocalDate purchaseDate;
+
+    //RELATIONS------------------------------------------------------
+
+    //METHODS--------------------------------------------------------
 }
