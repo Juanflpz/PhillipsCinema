@@ -41,5 +41,11 @@ public class MovieTheater implements Serializable {
     @ManyToOne
     private Theater theater;
 
+    @OneToMany(mappedBy = "movieTheater")
+    private List<Ticket> tickets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "movieTheater")
+    private List<Performance> performances = new ArrayList<>();
+
     //METHODS--------------------------------------------------------
 }

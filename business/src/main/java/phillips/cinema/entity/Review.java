@@ -5,6 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -34,5 +36,8 @@ public class Review implements Serializable {
     //RELATIONS------------------------------------------------------
     @ManyToOne
     private Client client;
+
+    @OneToMany(mappedBy = "review")
+    private List<Review> reviews = new ArrayList<>();
     //METHODS--------------------------------------------------------
 }

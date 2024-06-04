@@ -45,5 +45,8 @@ public class Performance implements Serializable {
     @ManyToOne
     private Schedule schedule;
 
+    @OneToMany(mappedBy = "performance")
+    private List<Ticket> tickets = new ArrayList<>();
+
     //METHODS----------------------------------------------------------------
 }

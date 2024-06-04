@@ -6,7 +6,9 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -47,6 +49,8 @@ public class Food implements Serializable {
     private Map<String, String> image = new HashMap<>();
 
     //RELATIONS------------------------------------------------------
+    @OneToMany(mappedBy = "food")
+    private List<PurchaseFood> purchaseFoods = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
 }

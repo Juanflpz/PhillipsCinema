@@ -35,5 +35,6 @@ public class Schedule implements Serializable {
     @ToString.Exclude
     private List<Performance> performances = new ArrayList<>();
 
+
     //METHODS-------------------------------------------------------------------
 }

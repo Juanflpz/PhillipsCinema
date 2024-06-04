@@ -29,6 +29,13 @@ public class Ticket implements Serializable {
     private Integer column;
 
     //RELATIONS------------------------------------------------------
+    @ManyToOne
+    private Purchase purchase;
+
+    @ManyToOne
+    private MovieTheater movieTheater;
+
+    @ManyToOne Performance performance;
 
     //METHODS--------------------------------------------------------
 }

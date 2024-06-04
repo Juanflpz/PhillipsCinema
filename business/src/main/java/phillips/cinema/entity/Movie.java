@@ -65,5 +65,11 @@ public class Movie implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Genre> genres = new ArrayList<>();
 
+    @ManyToOne
+    private Review review;
+
+    @OneToMany(mappedBy = "movie")
+    private List<Performance> performances = new ArrayList<>();
+
     //METHODS--------------------------------------------------------
 }
