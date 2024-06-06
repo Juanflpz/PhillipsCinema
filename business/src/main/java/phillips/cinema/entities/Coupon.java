@@ -38,6 +38,7 @@ public class Coupon implements Serializable {
     @NonNull
     private LocalDate expireDate;
 
+    @Lob
     @Column(nullable = false)
     @NonNull
     private String description;

@@ -38,11 +38,13 @@ public class MovieTheater implements Serializable {
     @CollectionTable(name = "movie_theater_types", joinColumns = @JoinColumn(name = "movie_theater_id")) //tabla y key del join
     @Column(name = "type", nullable = false)
     private List<MovieTheaterType> movie_theater_types = new ArrayList<>();
+
     //RELATIONS------------------------------------------------------
     @ManyToOne
     @NonNull
     private Theater theater;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "movieTheater")
     private List<Ticket> tickets = new ArrayList<>();
 

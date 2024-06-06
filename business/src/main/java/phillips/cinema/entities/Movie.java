@@ -68,6 +68,7 @@ public class Movie implements Serializable {
     private List<Genre> genres = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie")
+    @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie")
@@ -82,4 +83,6 @@ public class Movie implements Serializable {
         this.image = image;
         this.genres = genres;
     }
+
+
 }

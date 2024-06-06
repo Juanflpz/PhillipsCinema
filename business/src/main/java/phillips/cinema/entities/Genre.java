@@ -25,6 +25,7 @@ public class Genre implements Serializable {
     private String name;
 
     //RELATIONS------------------------------------------------------
+    @ToString.Exclude
     @ManyToMany
     private List<Movie> movies = new ArrayList<>();
 

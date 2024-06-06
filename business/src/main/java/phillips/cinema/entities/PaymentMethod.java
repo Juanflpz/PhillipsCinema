@@ -25,6 +25,7 @@ public class PaymentMethod implements Serializable {
     private String name;
 
     //RELATIONS------------------------------------------------------
+    @ToString.Exclude
     @OneToMany(mappedBy = "paymentMethod")
     private List<Purchase> purchases = new ArrayList<>();
 

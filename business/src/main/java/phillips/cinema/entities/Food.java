@@ -43,6 +43,7 @@ public class Food implements Serializable {
     @Column(nullable = false)
     private Integer amount;
 
+    @Lob
     @Column(length = 200, nullable = false)
     @NonNull
     private String description;
@@ -56,6 +57,7 @@ public class Food implements Serializable {
     private Map<String, String> image = new HashMap<>();
 
     //RELATIONS------------------------------------------------------
+    @ToString.Exclude
     @OneToMany(mappedBy = "food")
     private List<PurchaseFood> purchaseFoods = new ArrayList<>();
 

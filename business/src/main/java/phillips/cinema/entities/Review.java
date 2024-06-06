@@ -21,6 +21,7 @@ public class Review implements Serializable {
     @EqualsAndHashCode.Include
     private Integer id;
 
+    @Lob
     @Column(length = 200, nullable = false)
     @NonNull
     private String description;
