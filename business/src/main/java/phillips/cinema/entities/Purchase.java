@@ -37,15 +37,18 @@ public class Purchase implements Serializable {
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
+    @NonNull
     private Client client;
 
     @OneToOne
     private ClientCoupon coupon;
 
     @ManyToOne
+    @NonNull
     private PaymentMethod paymentMethod;
 
     @OneToMany(mappedBy = "purchase")
+    @NonNull
     private List<Ticket> tickets = new ArrayList<>();
 
     @OneToMany(mappedBy = "purchase")

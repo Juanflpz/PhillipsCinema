@@ -19,9 +19,11 @@ public class PurchaseFood implements Serializable {
     private Integer id;
 
     @Column(nullable = false)
+    @NonNull
     private Float price;
 
     @Column(nullable = false)
+    @NonNull
     private Integer purchasedUnits;
 
     //RELATIONS------------------------------------------------------------------------------------------

@@ -19,6 +19,7 @@ public class PhoneNumber implements Serializable {
     private Integer id;
 
     @Enumerated(EnumType.STRING)
+    @NonNull
     private PhoneType type;
 
     //RELATIONS------------------------------------------------------

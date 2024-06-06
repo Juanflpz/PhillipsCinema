@@ -28,6 +28,7 @@ public class Food implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10, nullable = false)
+    @NonNull
     private FoodType type;
 
     @Enumerated(EnumType.STRING)
@@ -35,12 +36,14 @@ public class Food implements Serializable {
     private FoodState state;
 
     @Column(length = 100, nullable = false)
+    @NonNull
     private String name;
 
     @Column(nullable = false)
     private Integer amount;
 
     @Column(length = 200, nullable = false)
+    @NonNull
     private String description;
 
     @ElementCollection

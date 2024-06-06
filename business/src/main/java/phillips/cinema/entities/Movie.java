@@ -47,28 +47,27 @@ public class Movie implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    @NonNull
-    private MovieState state;
+    private MovieState state = MovieState.NOT_EXHIBITED;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    @NonNull
-    private MovieType type;
+    private MovieType type = MovieType.PREVIEW;
 
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "movie_image")
-    private Map<String, String> imagen = new HashMap<>();
+    private Map<String, String> image = new HashMap<>();
 
     //RELATIONS------------------------------------------------------
     @ManyToMany(mappedBy = "movies")
     @LazyCollection(LazyCollectionOption.FALSE)
+    @NonNull
     private List<Genre> genres = new ArrayList<>();
 
-    @ManyToOne
-    private Review review;
+    @OneToMany(mappedBy = "movie")
+    private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie")
     private List<Performance> performances = new ArrayList<>();

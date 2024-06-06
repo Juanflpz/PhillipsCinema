@@ -30,6 +30,7 @@ public class Theater implements Serializable {
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
+    @NonNull
     private City city;
 
     @ManyToOne

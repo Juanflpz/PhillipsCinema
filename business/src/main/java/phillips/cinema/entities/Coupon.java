@@ -25,23 +25,29 @@ public class Coupon implements Serializable {
 
     //@Column(length = 60, nullable = false, unique = true)
     @Column(length = 60, nullable = false)
+    @NonNull
     private String name;
 
     @Positive
     @Column(nullable = false)
+    @NonNull
     private Double discount;
 
     @Column(nullable = false)
+    @NonNull
     private LocalDate expireDate;
 
     @Column(nullable = false)
+    @NonNull
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @NonNull
     private CouponType type;
 
     //RELATIONS------------------------------------------------------
     @OneToMany(mappedBy = "coupon")
+    @ToString.Exclude
     private List<ClientCoupon> clientCoupons = new ArrayList<>();
 
     //METHODS--------------------------------------------------------

@@ -21,7 +21,7 @@ public class ClientCoupon implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    private CouponState estado = CouponState.AVAILABLE;
+    private CouponState state = CouponState.AVAILABLE;
 
     //RELATIONS-----------------------------------------------------------------------------------
     @ManyToOne

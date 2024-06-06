@@ -24,9 +24,11 @@ public class City implements Serializable {
 
     @Length(max = 30)
     @Column(length = 60, nullable = false)
+    @NonNull
     private String cityName;
 
     @Enumerated(EnumType.STRING)
+    @NonNull
     private Department type;
 
     //RELATIONS------------------------------------------------------

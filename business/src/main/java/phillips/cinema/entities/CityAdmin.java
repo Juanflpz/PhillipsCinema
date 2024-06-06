@@ -1,9 +1,6 @@
 package phillips.cinema.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -30,6 +27,7 @@ public class CityAdmin extends Person implements Serializable {
 
     //RELATIONS------------------------------------------------------
     @OneToOne
+    @NonNull
     private City city;
 
     @OneToMany(mappedBy = "admin")

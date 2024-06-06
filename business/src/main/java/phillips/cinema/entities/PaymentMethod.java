@@ -25,7 +25,7 @@ public class PaymentMethod implements Serializable {
     private String name;
 
     //RELATIONS------------------------------------------------------
-    @ManyToMany
+    @OneToMany(mappedBy = "paymentMethod")
     private List<Purchase> purchases = new ArrayList<>();
 
     //METHODS--------------------------------------------------------

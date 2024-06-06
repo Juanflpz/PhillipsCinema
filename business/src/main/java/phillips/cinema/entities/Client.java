@@ -36,7 +36,7 @@ public class Client extends Person implements Serializable {
 
     @Positive
     @Column(nullable = false)
-    private Integer level;
+    private Integer level = 1;
 
     private LocalDate birthDate;
 

@@ -31,13 +31,16 @@ public class Review implements Serializable {
 
     @Column(nullable = false)
     @NonNull
-    private LocalDate purchaseDate;
+    private LocalDate reviewDate;
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
+    @NonNull
     private Client client;
 
-    @OneToMany(mappedBy = "review")
-    private List<Movie> movies = new ArrayList<>();
+    @ManyToOne
+    @NonNull
+    private Movie movie;
+
     //METHODS--------------------------------------------------------
 }

@@ -21,22 +21,26 @@ public class Ticket implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10, nullable = false)
-    private TicketState state;
+    private TicketState state = TicketState.AVAILABLE;
 
     @Column(nullable = false)
-    private Integer h_line;
+    @NonNull
+    private Integer stripe;
 
     @Column(nullable = false)
-    private Integer v_line;
+    @NonNull
+    private Integer pillar;
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
     private Purchase purchase;
 
     @ManyToOne
+    @NonNull
     private MovieTheater movieTheater;
 
     @ManyToOne
+    @NonNull
     private Performance performance;
 
     //METHODS--------------------------------------------------------
