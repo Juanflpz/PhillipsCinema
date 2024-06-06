@@ -30,4 +30,7 @@ public class PhoneNumber implements Serializable {
     private Client client;
 
     //METHODS--------------------------------------------------------
+    public PhoneNumber(@NonNull PhoneType type) {
+        this.type = type;
+    }
 }

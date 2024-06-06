@@ -27,10 +27,6 @@ public class Purchase implements Serializable {
     @NonNull
     private Float total;
 
-    @Column(length = 100, nullable = false)
-    @NonNull
-    private String address;
-
     @Column(nullable = false)
     @NonNull
     private LocalDate purchaseDate;
@@ -54,5 +50,18 @@ public class Purchase implements Serializable {
     @OneToMany(mappedBy = "purchase")
     private List<PurchaseFood> purchaseFoods = new ArrayList<>();
 
+    @ManyToOne
+    @NonNull
+    private Performance performance;
+
     //METHODS--------------------------------------------------------
+    public Purchase(@NonNull Float total, @NonNull LocalDate purchaseDate, @NonNull Client client, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, @NonNull Performance performance) {
+        this.total = total;
+        this.purchaseDate = purchaseDate;
+        this.client = client;
+        this.paymentMethod = paymentMethod;
+        this.tickets = tickets;
+        this.performance = performance;
+    }
+
 }

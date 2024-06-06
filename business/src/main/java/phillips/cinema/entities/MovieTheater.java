@@ -50,4 +50,11 @@ public class MovieTheater implements Serializable {
     private List<Performance> performances = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    public MovieTheater(@NonNull Integer seats, @NonNull Integer stripes, @NonNull Integer pillars, @NonNull Theater theater, List<MovieTheaterType> movie_theater_types) {
+        this.seats = seats;
+        this.stripes = stripes;
+        this.pillars = pillars;
+        this.theater = theater;
+        this.movie_theater_types = movie_theater_types;
+    }
 }

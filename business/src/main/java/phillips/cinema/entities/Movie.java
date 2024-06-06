@@ -58,6 +58,7 @@ public class Movie implements Serializable {
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "movie_image")
+    @NonNull
     private Map<String, String> image = new HashMap<>();
 
     //RELATIONS------------------------------------------------------
@@ -73,4 +74,12 @@ public class Movie implements Serializable {
     private List<Performance> performances = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    public Movie(@NonNull String name, @NonNull String trailer, @NonNull String synopsis, @NonNull String cast, @NonNull Map<String, String> image, @NonNull List<Genre> genres) {
+        this.name = name;
+        this.trailer = trailer;
+        this.synopsis = synopsis;
+        this.cast = cast;
+        this.image = image;
+        this.genres = genres;
+    }
 }

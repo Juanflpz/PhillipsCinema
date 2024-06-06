@@ -36,4 +36,10 @@ public class PurchaseFood implements Serializable {
     private Food food;
 
     //METHODS-----------------------------------------------------------------------------------
+    public PurchaseFood(@NonNull Float price, @NonNull Integer purchasedUnits, @NonNull Purchase purchase, @NonNull Food food) {
+        this.price = price;
+        this.purchasedUnits = purchasedUnits;
+        this.purchase = purchase;
+        this.food = food;
+    }
 }

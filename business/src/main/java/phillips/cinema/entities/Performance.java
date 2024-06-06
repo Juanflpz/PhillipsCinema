@@ -58,5 +58,16 @@ public class Performance implements Serializable {
     @NonNull
     private List<Ticket> tickets = new ArrayList<>();
 
+    @OneToMany(mappedBy = "performance")
+    private List<Purchase> purchases = new ArrayList<>();
+
     //METHODS----------------------------------------------------------------
+    public Performance(@NonNull PerformanceType type, @NonNull Float price, @NonNull Movie movie, @NonNull MovieTheater movieTheater, @NonNull Schedule schedule, @NonNull List<Ticket> tickets) {
+        this.type = type;
+        this.price = price;
+        this.movie = movie;
+        this.movieTheater = movieTheater;
+        this.schedule = schedule;
+        this.tickets = tickets;
+    }
 }

@@ -43,4 +43,11 @@ public class Review implements Serializable {
     private Movie movie;
 
     //METHODS--------------------------------------------------------
+    public Review(@NonNull String description, @NonNull Float rate, @NonNull LocalDate reviewDate, @NonNull Client client, @NonNull Movie movie) {
+        this.description = description;
+        this.rate = rate;
+        this.reviewDate = reviewDate;
+        this.client = client;
+        this.movie = movie;
+    }
 }

@@ -1,6 +1,7 @@
 package phillips.cinema.entities;
 
 import lombok.*;
+import phillips.cinema.entities.enums.CouponState;
 import phillips.cinema.entities.enums.CouponType;
 
 import javax.persistence.*;
@@ -45,10 +46,21 @@ public class Coupon implements Serializable {
     @NonNull
     private CouponType type;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private CouponState state = CouponState.AVAILABLE;
+
     //RELATIONS------------------------------------------------------
     @OneToMany(mappedBy = "coupon")
     @ToString.Exclude
     private List<ClientCoupon> clientCoupons = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    public Coupon(@NonNull String name, @NonNull Double discount, @NonNull LocalDate expireDate, @NonNull String description, @NonNull CouponType type) {
+        this.name = name;
+        this.discount = discount;
+        this.expireDate = expireDate;
+        this.description = description;
+        this.type = type;
+    }
 }

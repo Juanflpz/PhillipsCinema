@@ -33,6 +33,7 @@ public class Food implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10, nullable = false)
+    @NonNull
     private FoodState state;
 
     @Column(length = 100, nullable = false)
@@ -51,6 +52,7 @@ public class Food implements Serializable {
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "food_image")
+    @NonNull
     private Map<String, String> image = new HashMap<>();
 
     //RELATIONS------------------------------------------------------
@@ -58,4 +60,11 @@ public class Food implements Serializable {
     private List<PurchaseFood> purchaseFoods = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    public Food(@NonNull FoodType type, @NonNull FoodState state, @NonNull String name, @NonNull String description, @NonNull Map<String, String> image) {
+        this.type = type;
+        this.state = state;
+        this.name = name;
+        this.description = description;
+        this.image = image;
+    }
 }

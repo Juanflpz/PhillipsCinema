@@ -29,7 +29,7 @@ public class City implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @NonNull
-    private Department type;
+    private Department department;
 
     //RELATIONS------------------------------------------------------
     @OneToMany(mappedBy = "city")
@@ -37,5 +37,10 @@ public class City implements Serializable {
 
     @OneToOne(mappedBy = "city")
     private CityAdmin admin;
+
     //METHODS--------------------------------------------------------
+    public City(@NonNull String cityName, @NonNull Department department) {
+        this.cityName = cityName;
+        this.department = department;
+    }
 }

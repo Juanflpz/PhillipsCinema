@@ -29,6 +29,9 @@ public class PaymentMethod implements Serializable {
     private List<Purchase> purchases = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    public PaymentMethod(@NonNull String name) {
+        this.name = name;
+    }
 }
 
 /*

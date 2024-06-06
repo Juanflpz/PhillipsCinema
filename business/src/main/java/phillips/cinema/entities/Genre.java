@@ -29,4 +29,7 @@ public class Genre implements Serializable {
     private List<Movie> movies = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    public Genre(@NonNull String name) {
+        this.name = name;
+    }
 }

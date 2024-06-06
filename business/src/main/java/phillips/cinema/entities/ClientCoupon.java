@@ -36,4 +36,8 @@ public class ClientCoupon implements Serializable {
     private Purchase purchase;
 
     //METHODS--------------------------------------------------------------------------------------
+    public ClientCoupon(@NonNull Client client, @NonNull Coupon coupon) {
+        this.client = client;
+        this.coupon = coupon;
+    }
 }

@@ -1,9 +1,6 @@
 package phillips.cinema.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -23,8 +20,8 @@ import java.util.Map;
 @ToString(callSuper = true)
 public class Client extends Person implements Serializable {
     //ATTRIBUTES------------------------------------------------------
-    @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE) //la colección debe ser cargada de forma inmediata (no perezosa).
+    @ElementCollection
     @MapKeyColumn(name = "publicIdImage")
     @Column(name = "imageURL")
     @CollectionTable(name = "client_image")
@@ -52,5 +49,9 @@ public class Client extends Person implements Serializable {
 
     @OneToMany(mappedBy = "client")
     private List<Purchase> purchases = new ArrayList<>();
+
     //METHODS--------------------------------------------------------
+    public Client(String id_card, String fullName, String email, String password) {
+        super(id_card, fullName, email, password);
+    }
 }
