@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class Review implements Serializable {
 
     @Column(nullable = false)
     @NonNull
-    private LocalDate reviewDate;
+    private LocalDateTime reviewDate;
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
@@ -44,10 +45,10 @@ public class Review implements Serializable {
     private Movie movie;
 
     //METHODS--------------------------------------------------------
-    public Review(@NonNull String description, @NonNull Float rate, @NonNull LocalDate reviewDate, @NonNull Client client, @NonNull Movie movie) {
+    public Review(@NonNull String description, @NonNull Float rate, @NonNull Client client, @NonNull Movie movie) {
         this.description = description;
         this.rate = rate;
-        this.reviewDate = reviewDate;
+        this.reviewDate = LocalDateTime.now();
         this.client = client;
         this.movie = movie;
     }

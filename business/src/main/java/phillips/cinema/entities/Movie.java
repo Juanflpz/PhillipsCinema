@@ -83,6 +83,4 @@ public class Movie implements Serializable {
         this.image = image;
         this.genres = genres;
     }
-
-
 }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Purchase implements Serializable {
 
     @Column(nullable = false)
     @NonNull
-    private LocalDate purchaseDate;
+    private LocalDateTime purchaseDate;
 
     //RELATIONS------------------------------------------------------
     @ManyToOne
@@ -55,13 +56,15 @@ public class Purchase implements Serializable {
     private Performance performance;
 
     //METHODS--------------------------------------------------------
-    public Purchase(@NonNull Float total, @NonNull LocalDate purchaseDate, @NonNull Client client, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, @NonNull Performance performance) {
+
+    public Purchase(@NonNull Float total, @NonNull Client client, ClientCoupon coupon, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, List<PurchaseFood> purchaseFoods, @NonNull Performance performance) {
         this.total = total;
-        this.purchaseDate = purchaseDate;
         this.client = client;
+        this.coupon = coupon;
         this.paymentMethod = paymentMethod;
         this.tickets = tickets;
+        this.purchaseFoods = purchaseFoods;
         this.performance = performance;
+        this.purchaseDate = LocalDateTime.now();
     }
-
 }
