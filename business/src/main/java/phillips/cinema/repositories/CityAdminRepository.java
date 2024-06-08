@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import phillips.cinema.entities.CityAdmin;
 
 @Repository
-public interface CityAdminRepository extends JpaRepository<CityAdmin, Integer> {
+public interface CityAdminRepository extends JpaRepository<CityAdmin, String> {
 }

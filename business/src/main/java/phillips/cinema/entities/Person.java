@@ -19,8 +19,9 @@ public class Person implements Serializable {
     // Atributos -----------------------------------------------------------------------------------------
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_card;
+    @Length(max = 10)
+    @Column(length = 10)
+    private String id_card;
 
     @Length(max = 60)
     @Column(length = 60, nullable = false)
@@ -43,7 +44,7 @@ public class Person implements Serializable {
     private PersonState state = PersonState.ACTIVE;
 
     // Constructor ------------------------------------------------------------------------------------
-    public Person(Integer id_card, String fullName, String email, String password) {
+    public Person(String id_card, String fullName, String email, String password) {
         this.id_card = id_card;
         this.fullName = fullName;
         this.email = email;
