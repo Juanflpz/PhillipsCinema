@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.Client;
 import phillips.cinema.repositories.ClientRepository;
 
@@ -19,6 +20,7 @@ public class ClientTest {
     private ClientRepository clientRepository;
 
     @Test
+    @Sql("classpath:dataset.sql")
     public void register(){
         Client client1 = new Client("1", "Juan Felipe Lopez", "juanfelipelopez55@gmail.com", "1234");
         Client client2 = clientRepository.save(client1);
@@ -26,49 +28,35 @@ public class ClientTest {
     }
 
     @Test
+    @Sql("classpath:dataset.sql")
     public void delete(){
-        Client client1 = new Client("1", "Juan Felipe Lopez", "juanfelipelopez55@gmail.com", "1234");
-        client1.setId_card("1");
-        Client client2 = clientRepository.save(client1);
-        clientRepository.delete(client2);
+        Client saved = clientRepository.findById("1234567890").orElse(null);
+        clientRepository.delete(saved);
 
-        Optional<Client> saved = clientRepository.findById("1");
-
-        Assertions.assertNull(saved.orElse(null));
+        Assertions.assertNull(clientRepository.findById("1234567890").orElse(null));
     }
 
     @Test
+    @Sql("classpath:dataset.sql")
     public void update(){
-        Client client1 = new Client("1", "Juan Felipe Lopez", "juanfelipelopez55@gmail.com", "1234");
-        client1.setId_card("1");
-        Client client2 = clientRepository.save(client1);
+        Client saved = clientRepository.findById("1234567890").orElse(null);
+        saved.setEmail("juanf.lpezc@uqvirtual.edu.co");
+        Client client = clientRepository.save(saved);
 
-        client2.setEmail("juanf.lpezc@uqvirtual.edu.co");
-
-        Client client3 = clientRepository.save(client2);
-
-        Assertions.assertEquals("juanf.lpezc@uqvirtual.edu.co", client3.getEmail());
+        Assertions.assertEquals("juanf.lpezc@uqvirtual.edu.co", client.getEmail());
     }
 
     @Test
+    @Sql("classpath:dataset.sql")
     public void getById(){
-        Client client1 = new Client("1", "Juan Felipe Lopez", "juanfelipelopez55@gmail.com", "1234");
-        clientRepository.save(client1);
-        Optional<Client> saved = clientRepository.findById("1");
-        System.out.println(saved.orElse(null));
-        Assertions.assertNotNull(saved.orElse(null));
+        Client saved = clientRepository.findById("1234567890").orElse(null);
+        Assertions.assertNotNull(saved);
     }
 
     @Test
+    @Sql("classpath:dataset.sql")
     public void list(){
-        Client client1 = new Client("1", "Juan Felipe Lopez", "juanfelipelopez55@gmail.com", "1234");
-        clientRepository.save(client1);
-
-        Client client2 = new Client("2", "Juan Felipe Lopez", "juanfelipelopez5@gmail.com", "1234");
-        clientRepository.save(client2);
-
         List<Client> saved = clientRepository.findAll();
-
         System.out.println(saved);
     }
 }
