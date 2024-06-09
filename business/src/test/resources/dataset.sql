@@ -29,3 +29,20 @@ VALUES
     (3007344067, 'HOME'),
     (3007344068, 'PERSONAL'),
     (3007344069, 'HOME');
+
+INSERT INTO coupon (description, discount, expire_date, name, state, type)
+VALUES
+    ('10% discount on selected products', 10.0, '2024-12-31', 'Discount10', 'AVAILABLE', 'BIENVENUE'),
+    ('20% discount on selected products', 20.0, '2024-11-30', 'Discount20', 'EXPIRED', 'AUGUST20'),
+    ('15% discount on selected products', 15.0, '2024-10-31', 'Discount15', 'AVAILABLE', 'FIRST_PURCHASE'),
+    ('25% discount on selected products', 25.0, '2025-01-15', 'Discount25', 'EXPIRED', 'FIRST_YEAR'),
+    ('5% discount on selected products', 15.0, '2024-09-30', 'Discount15', 'USED', 'HAPPY_BDAY');
+
+INSERT INTO food (amount, description, name, state, type)
+VALUES
+    (100, 'Fresh apples from the farm', 'Apples', 'NOT_AVAILABLE', 'Fruit'),
+    (50, 'Organic whole wheat bread', 'Whole Wheat Bread', 'AVAILABLE', 'Grain'),
+    (200, 'Free-range chicken breast', 'Chicken Breast', 'AVAILABLE', 'Meat'),
+    (75, 'Homemade strawberry jam', 'Strawberry Jam', 'AVAILABLE', 'Condiment'),
+    (300, 'Locally grown carrots', 'Carrots', 'NOT_AVAILABLE', 'Vegetable');
+

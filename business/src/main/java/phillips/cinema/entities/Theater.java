@@ -36,6 +36,9 @@ public class Theater implements Serializable {
     @ManyToOne
     private CityAdmin admin;
 
+    @ManyToMany(mappedBy = "theaters")
+    private List<Food> foods = new ArrayList<>();
+
     @OneToMany(mappedBy = "theater")
     private List<MovieTheater> movieTheaters = new ArrayList<>();
 

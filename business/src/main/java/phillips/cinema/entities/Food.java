@@ -61,6 +61,9 @@ public class Food implements Serializable {
     @OneToMany(mappedBy = "food")
     private List<PurchaseFood> purchaseFoods = new ArrayList<>();
 
+    @ManyToMany
+    private List<Theater> theaters = new ArrayList<>();
+
     //METHODS--------------------------------------------------------
     public Food(@NonNull FoodType type, @NonNull FoodState state, @NonNull String name, @NonNull String description, @NonNull Map<String, String> image) {
         this.type = type;

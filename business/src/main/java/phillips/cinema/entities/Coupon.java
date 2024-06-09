@@ -44,6 +44,7 @@ public class Coupon implements Serializable {
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     @NonNull
     private CouponType type;
 

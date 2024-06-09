@@ -31,7 +31,8 @@ public class PhoneNumber implements Serializable {
     private Client client;
 
     //METHODS--------------------------------------------------------
-    public PhoneNumber(@NonNull PhoneType type) {
+    public PhoneNumber(Integer id, @NonNull PhoneType type) {
+        this.id = id;
         this.type = type;
     }
 }
