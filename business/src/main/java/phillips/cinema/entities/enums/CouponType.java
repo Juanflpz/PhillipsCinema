@@ -5,5 +5,5 @@ public enum CouponType {
     BIENVENUE,
     AUGUST20,
     FIRST_YEAR,
-    HAPPY_BDAY;
+    HAPPY_BDAY
 }
