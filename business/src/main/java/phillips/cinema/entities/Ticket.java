@@ -32,15 +32,18 @@ public class Ticket implements Serializable {
     private Integer pillar;
 
     //RELATIONS------------------------------------------------------
+    @ToString.Exclude
     @ManyToOne
     private Purchase purchase;
 
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private MovieTheater movieTheater;
 
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private Performance performance;
 
     //METHODS--------------------------------------------------------

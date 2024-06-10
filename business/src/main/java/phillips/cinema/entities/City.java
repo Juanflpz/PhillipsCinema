@@ -33,9 +33,11 @@ public class City implements Serializable {
 
     //RELATIONS------------------------------------------------------
     @OneToMany(mappedBy = "city")
+    @ToString.Exclude
     private List<Theater> theaters = new ArrayList<>();
 
     @OneToOne(mappedBy = "city")
+    @ToString.Exclude
     private CityAdmin admin;
 
     //METHODS--------------------------------------------------------

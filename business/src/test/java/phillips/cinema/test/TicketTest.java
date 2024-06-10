@@ -30,38 +30,37 @@ public class TicketTest {
         Ticket ticket1 = ticketRepository.save(ticket);
         Assertions.assertEquals(7, ticket1.getPillar());
     }
-    /*
+
     @Test
     @Sql("classpath:dataset.sql")
     public void delete() {
-        Client saved = clientRepository.findById("1234567890").orElse(null);
-        clientRepository.delete(saved);
+        Ticket saved = ticketRepository.findById(1).orElse(null);
+        ticketRepository.delete(saved);
 
-        Assertions.assertNull(clientRepository.findById("1234567890").orElse(null));
+        Assertions.assertNull(ticketRepository.findById(1).orElse(null));
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void update() {
-        Client saved = clientRepository.findById("1234567890").orElse(null);
-        saved.setEmail("juanf.lpezc@uqvirtual.edu.co");
-        Client client = clientRepository.save(saved);
+        Ticket saved = ticketRepository.findById(1).orElse(null);
+        saved.setPillar(8);
+        Ticket saved1 = ticketRepository.save(saved);
 
-        Assertions.assertEquals("juanf.lpezc@uqvirtual.edu.co", client.getEmail());
+        Assertions.assertEquals(8, saved1.getPillar());
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void getById() {
-        Client saved = clientRepository.findById("1234567890").orElse(null);
+        Ticket saved = ticketRepository.findById(3).orElse(null);
         Assertions.assertNotNull(saved);
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void list() {
-        List<Client> saved = clientRepository.findAll();
-        System.out.println(saved);
+        List<Ticket> tickets = ticketRepository.findAll();
+        System.out.println(tickets);
     }
-    */
 }

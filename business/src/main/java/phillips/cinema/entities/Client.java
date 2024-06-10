@@ -39,15 +39,19 @@ public class Client extends Person implements Serializable {
 
     //RELATIONS------------------------------------------------------
     @OneToMany(mappedBy = "client")
+    @ToString.Exclude
     private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     @OneToMany(mappedBy = "client")
+    @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "client")
+    @ToString.Exclude
     private List<ClientCoupon> coupons = new ArrayList<>();
 
     @OneToMany(mappedBy = "client")
+    @ToString.Exclude
     private List<Purchase> purchases = new ArrayList<>();
 
     //METHODS--------------------------------------------------------

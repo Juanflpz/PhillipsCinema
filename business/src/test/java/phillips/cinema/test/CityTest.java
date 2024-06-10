@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
+import phillips.cinema.entities.City;
 import phillips.cinema.entities.Client;
+import phillips.cinema.entities.enums.Department;
+import phillips.cinema.repositories.CityRepository;
 import phillips.cinema.repositories.ClientRepository;
+import phillips.cinema.repositories.TicketRepository;
 
 import java.util.List;
 
@@ -16,46 +20,47 @@ import java.util.List;
 public class CityTest {
 
     @Autowired //automatically load without instantiating it
-    private ClientRepository clientRepository;
+    private CityRepository cityRepository;
+    @Autowired
+    private TicketRepository ticketRepository;
 
     @Test
     @Sql("classpath:dataset.sql")
     public void register(){
-        Client client1 = new Client("1", "Juan Felipe Lopez", "juanfelipelopez55@gmail.com", "1234");
-        Client client2 = clientRepository.save(client1);
-        Assertions.assertEquals("juanfelipelopez55@gmail.com", client2.getEmail());
+        City city = new City("HOLA", Department.ARAUCA);
+        City savedCity = cityRepository.save(city);
+        Assertions.assertEquals(Department.ARAUCA, savedCity.getDepartment());
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void delete(){
-        Client saved = clientRepository.findById("1234567890").orElse(null);
-        clientRepository.delete(saved);
+        City city = cityRepository.findById(1).orElse(null);
+        cityRepository.delete(city);
 
-        Assertions.assertNull(clientRepository.findById("1234567890").orElse(null));
+        Assertions.assertNull(cityRepository.findById(1).orElse(null));
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void update(){
-        Client saved = clientRepository.findById("1234567890").orElse(null);
-        saved.setEmail("juanf.lpezc@uqvirtual.edu.co");
-        Client client = clientRepository.save(saved);
+        City city = cityRepository.findById(1).orElse(null);
+        city.setCityName("Adios");
 
-        Assertions.assertEquals("juanf.lpezc@uqvirtual.edu.co", client.getEmail());
+        Assertions.assertEquals("Adios", city.getCityName());
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void getById(){
-        Client saved = clientRepository.findById("1234567890").orElse(null);
-        Assertions.assertNotNull(saved);
+        City city = cityRepository.findById(1).orElse(null);
+        Assertions.assertNotNull(city);
     }
 
     @Test
     @Sql("classpath:dataset.sql")
     public void list(){
-        List<Client> saved = clientRepository.findAll();
-        System.out.println(saved);
+        List<City> cities = cityRepository.findAll();
+        System.out.println(cities);
     }
 }
