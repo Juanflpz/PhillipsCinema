@@ -27,12 +27,12 @@ public class Food implements Serializable {
     private Integer id;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
+    @Column(length = 20, nullable = false)
     @NonNull
     private FoodType type;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
+    @Column(length = 20, nullable = false)
     @NonNull
     private FoodState state;
 

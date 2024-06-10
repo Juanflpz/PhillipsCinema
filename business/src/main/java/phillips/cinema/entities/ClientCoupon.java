@@ -32,7 +32,7 @@ public class ClientCoupon implements Serializable {
     @NonNull
     private Coupon coupon;
 
-    @OneToOne(mappedBy = "coupon")
+    @OneToOne(mappedBy = "clientCoupon")
     private Purchase purchase;
 
     //METHODS--------------------------------------------------------------------------------------

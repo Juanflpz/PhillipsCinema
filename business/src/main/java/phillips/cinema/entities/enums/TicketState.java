@@ -4,5 +4,5 @@ public enum TicketState {
     AVAILABLE,
     USED,
     PURCHASED,
-    EXPIRED
+
 }

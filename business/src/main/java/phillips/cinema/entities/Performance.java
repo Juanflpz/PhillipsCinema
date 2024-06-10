@@ -29,7 +29,7 @@ public class Performance implements Serializable {
 
     //when a performance is created it means it´s available for its purchase
     @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
+    @Column(length = 20, nullable = false)
     private PerformanceState state = PerformanceState.AVAILABLE;
 
     @Column(nullable = false)

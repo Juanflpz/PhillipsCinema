@@ -38,7 +38,7 @@ public class Purchase implements Serializable {
     private Client client;
 
     @OneToOne
-    private ClientCoupon coupon;
+    private ClientCoupon clientCoupon;
 
     @ManyToOne
     @NonNull
@@ -57,10 +57,10 @@ public class Purchase implements Serializable {
 
     //METHODS--------------------------------------------------------
 
-    public Purchase(@NonNull Float total, @NonNull Client client, ClientCoupon coupon, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, List<PurchaseFood> purchaseFoods, @NonNull Performance performance) {
+    public Purchase(@NonNull Float total, @NonNull Client client, ClientCoupon clientCoupon, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, List<PurchaseFood> purchaseFoods, @NonNull Performance performance) {
         this.total = total;
         this.client = client;
-        this.coupon = coupon;
+        this.clientCoupon = clientCoupon;
         this.paymentMethod = paymentMethod;
         this.tickets = tickets;
         this.purchaseFoods = purchaseFoods;

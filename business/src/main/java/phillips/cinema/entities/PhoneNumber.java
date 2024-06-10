@@ -16,7 +16,7 @@ public class PhoneNumber implements Serializable {
     //ATTRIBUTES------------------------------------------------------
     @Id
     @EqualsAndHashCode.Include
-    private Integer id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -31,7 +31,7 @@ public class PhoneNumber implements Serializable {
     private Client client;
 
     //METHODS--------------------------------------------------------
-    public PhoneNumber(Integer id, @NonNull PhoneType type) {
+    public PhoneNumber(Long id, @NonNull PhoneType type) {
         this.id = id;
         this.type = type;
     }
