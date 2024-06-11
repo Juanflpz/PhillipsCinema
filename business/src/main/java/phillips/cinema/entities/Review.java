@@ -38,10 +38,12 @@ public class Review implements Serializable {
     //RELATIONS------------------------------------------------------
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private Client client;
 
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private Movie movie;
 
     //METHODS--------------------------------------------------------

@@ -30,9 +30,11 @@ public class CityAdmin extends Person implements Serializable {
     @NonNull
     private City city;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "admin")
     private List<Theater> theaters = new ArrayList<>();
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "admin")
     private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
