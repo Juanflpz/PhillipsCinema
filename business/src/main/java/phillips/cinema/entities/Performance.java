@@ -54,9 +54,11 @@ public class Performance implements Serializable {
     @NonNull
     private Schedule schedule;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "performance")
     private List<Ticket> tickets = new ArrayList<>();
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "performance")
     private List<Purchase> purchases = new ArrayList<>();
 

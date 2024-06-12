@@ -8,9 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.City;
 import phillips.cinema.entities.CityAdmin;
-import phillips.cinema.entities.Client;
 import phillips.cinema.repositories.CityAdminRepository;
-import phillips.cinema.repositories.ClientRepository;
 
 import java.util.HashMap;
 import java.util.List;

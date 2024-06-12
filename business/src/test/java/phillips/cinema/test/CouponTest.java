@@ -11,7 +11,6 @@ import phillips.cinema.entities.enums.CouponType;
 import phillips.cinema.repositories.CouponRepository;
 
 import java.time.LocalDate;
-import java.util.EnumSet;
 import java.util.List;
 
 @DataJpaTest //doesn´t alterate the data

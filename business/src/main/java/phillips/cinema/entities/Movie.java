@@ -72,6 +72,7 @@ public class Movie implements Serializable {
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "movie")
+    @ToString.Exclude
     private List<Performance> performances = new ArrayList<>();
 
     //METHODS--------------------------------------------------------

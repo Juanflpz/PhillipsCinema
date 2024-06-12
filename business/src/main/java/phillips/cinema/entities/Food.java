@@ -41,6 +41,7 @@ public class Food implements Serializable {
     private String name;
 
     @Column(nullable = false)
+    @NonNull
     private Integer amount;
 
     @Lob
@@ -65,11 +66,12 @@ public class Food implements Serializable {
     private List<Theater> theaters = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
-    public Food(@NonNull FoodType type, @NonNull FoodState state, @NonNull String name, @NonNull String description, @NonNull Map<String, String> image) {
+    public Food(@NonNull FoodType type, @NonNull FoodState state, @NonNull String name, @NonNull String description, @NonNull Map<String, String> image, @NonNull Integer amount) {
         this.type = type;
         this.state = state;
         this.name = name;
         this.description = description;
         this.image = image;
+        this.amount = amount;
     }
 }

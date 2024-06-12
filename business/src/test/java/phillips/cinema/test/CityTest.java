@@ -7,10 +7,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.City;
-import phillips.cinema.entities.Client;
 import phillips.cinema.entities.enums.Department;
 import phillips.cinema.repositories.CityRepository;
-import phillips.cinema.repositories.ClientRepository;
 import phillips.cinema.repositories.TicketRepository;
 
 import java.util.List;
