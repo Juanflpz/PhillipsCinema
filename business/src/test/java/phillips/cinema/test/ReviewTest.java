@@ -9,12 +9,8 @@ import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.Client;
 import phillips.cinema.entities.Movie;
 import phillips.cinema.entities.Review;
-import phillips.cinema.entities.Schedule;
 import phillips.cinema.repositories.ReviewRepository;
-import phillips.cinema.repositories.ScheduleRepository;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @DataJpaTest

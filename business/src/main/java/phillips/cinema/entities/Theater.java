@@ -39,6 +39,7 @@ public class Theater implements Serializable {
     @ManyToMany(mappedBy = "theaters")
     private List<Food> foods = new ArrayList<>();
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "theater")
     private List<MovieTheater> movieTheaters = new ArrayList<>();
 

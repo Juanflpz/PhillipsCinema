@@ -35,28 +35,33 @@ public class Purchase implements Serializable {
     //RELATIONS------------------------------------------------------
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private Client client;
 
     @OneToOne
+    @ToString.Exclude
     private ClientCoupon clientCoupon;
 
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private PaymentMethod paymentMethod;
 
     @OneToMany(mappedBy = "purchase")
     @NonNull
+    @ToString.Exclude
     private List<Ticket> tickets = new ArrayList<>();
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "purchase")
     private List<PurchaseFood> purchaseFoods = new ArrayList<>();
 
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private Performance performance;
 
     //METHODS--------------------------------------------------------
-
     public Purchase(@NonNull Float total, @NonNull Client client, ClientCoupon clientCoupon, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, List<PurchaseFood> purchaseFoods, @NonNull Performance performance) {
         this.total = total;
         this.client = client;
