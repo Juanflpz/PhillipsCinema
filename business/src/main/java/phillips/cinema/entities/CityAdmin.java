@@ -39,8 +39,8 @@ public class CityAdmin extends Person implements Serializable {
     private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
-    public CityAdmin(String id_card, String fullName, String email, String password, Map<String, String> profileImage, @NonNull City city) {
-        super(id_card, fullName, email, password);
+    public CityAdmin(String idCard, String fullName, String email, String password, Map<String, String> profileImage, @NonNull City city) {
+        super(idCard, fullName, email, password);
         this.profileImage = profileImage;
         this.city = city;
     }

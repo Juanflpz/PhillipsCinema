@@ -55,7 +55,7 @@ public class Client extends Person implements Serializable {
     private List<Purchase> purchases = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
-    public Client(String id_card, String fullName, String email, String password) {
-        super(id_card, fullName, email, password);
+    public Client(String idCard, String fullName, String email, String password) {
+        super(idCard, fullName, email, password);
     }
 }

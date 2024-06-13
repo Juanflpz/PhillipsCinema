@@ -4,12 +4,12 @@ VALUES
     ('0987654321', 'maria.gomez@example.com', 'Maria Gomez', 'password456', 'ACTIVE', '1985-08-21', 2),
     ('1122334455', 'pedro.ramirez@example.com', 'Pedro Ramirez', 'password789', 'ACTIVE', '1992-01-30', 1),
     ('2233445566', 'ana.sanchez@example.com', 'Ana Sanchez', 'password012', 'ACTIVE', '1988-11-15', 3),
-    ('3344556677', 'laura.martinez@example.com', 'Laura Martinez', 'password345', 'ACTIVE', '1995-07-09', 1);
+    ('3344556677', 'laura.martinez@example.com', 'Laura Martinez', 'password345', 'INACTIVE', '1995-07-09', 1);
 
 INSERT INTO city (id, city_name, department)
 VALUES
-    (1, 'Bogotá', 'NORTE_DE_SANTANDER'),
-    (2, 'Medellín', 'ANTIOQUIA'),
+    (1, 'Bogota', 'NORTE_DE_SANTANDER'),
+    (2, 'Medellin', 'ANTIOQUIA'),
     (3, 'Cali', 'VALLE_DEL_CAUCA'),
     (4, 'Barranquilla', 'ATLANTICO'),
     (5, 'Cartagena', 'BOLIVAR');
@@ -116,8 +116,8 @@ VALUES
 
 INSERT INTO review (id, description, rate, review_date, client_id_card, movie_id)
 VALUES
-    (1, 'Great movie, loved the plot!', 4.5, '2024-06-15 08:30:00', '3344556677', 1),
-    (2, 'The acting was superb.', 4.0, '2024-06-16 10:00:00', '1234567890', 2),
+    (1, 'Great movie, loved the plot!', 2.5, '2024-06-15 08:30:00', '3344556677', 1),
+    (2, 'The acting was superb.', 3.0, '2024-06-16 10:00:00', '1234567890', 2),
     (3, 'Enjoyed every moment of it.', 4.2, '2024-06-17 12:15:00', '2233445566', 3),
     (4, 'Could have been better.', 3.5, '2024-06-18 14:30:00', '3344556677', 4),
     (5, 'Amazing visuals!', 4.8, '2024-06-19 16:45:00', '2233445566', 5);

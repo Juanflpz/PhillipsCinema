@@ -21,7 +21,7 @@ public class Person implements Serializable {
     @EqualsAndHashCode.Include
     @Length(max = 10)
     @Column(length = 10)
-    private String id_card;
+    private String idCard;
 
     @Length(max = 60)
     @Column(length = 60, nullable = false)
@@ -44,8 +44,8 @@ public class Person implements Serializable {
     private PersonState state = PersonState.ACTIVE;
 
     // Constructor ------------------------------------------------------------------------------------
-    public Person(String id_card, String fullName, String email, String password) {
-        this.id_card = id_card;
+    public Person(String idCard, String fullName, String email, String password) {
+        this.idCard = idCard;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
