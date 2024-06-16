@@ -4,7 +4,8 @@ VALUES
     ('0987654321', 'maria.gomez@example.com', 'Maria Gomez', 'password456', 'ACTIVE', '1985-08-21', 2),
     ('1122334455', 'pedro.ramirez@example.com', 'Pedro Ramirez', 'password789', 'ACTIVE', '1992-01-30', 1),
     ('2233445566', 'ana.sanchez@example.com', 'Ana Sanchez', 'password012', 'ACTIVE', '1988-11-15', 3),
-    ('3344556677', 'laura.martinez@example.com', 'Laura Martinez', 'password345', 'INACTIVE', '1995-07-09', 1);
+    ('3344556677', 'laura.martinez@example.com', 'Laura Martinez', 'password345', 'INACTIVE', '1995-07-09', 1),
+    ('5543893065', 'pala.velez@example.com', 'Pala Velez', 'password100', 'INACTIVE', '2003-10-23', 5);
 
 INSERT INTO city (id, city_name, department)
 VALUES
@@ -96,7 +97,8 @@ VALUES
     (2, 12.00, 'AVAILABLE', 'PERFORMANCE_3D', 2, 2, 2),
     (3, 11.75, 'AVAILABLE', 'PERFORMANCE_XD', 3, 3, 3),
     (4, 9.99, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 4, 4, 4),
-    (5, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_3D', 5, 5, 5);
+    (5, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_3D', 5, 5, 5),
+    (6, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 1, 5, 5);
 
 INSERT INTO payment_method (id, name)
 VALUES
@@ -128,7 +130,7 @@ VALUES
     (2, 13, 'PURCHASED', 10, 2, 2, 2),
     (3, 3, 'USED', 10, 3, 3, 3),
     (4, 11, 'PURCHASED', 10, 4, 4, 4),
-    (5, 21, 'EXPIRED', 11, 5, 5, 5);
+    (5, 21, 'EXPIRED', 11, 5, 5, 2);
 
 
 

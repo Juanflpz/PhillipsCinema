@@ -1,1 +1,3 @@
 5 queries related to the project
+
+Leer sobre DISTINCT, JOIN, y funciones esenciales en SQL.

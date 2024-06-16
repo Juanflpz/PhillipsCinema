@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.City;
+import phillips.cinema.entities.Theater;
 import phillips.cinema.entities.enums.Department;
 import phillips.cinema.repositories.CityRepository;
 import phillips.cinema.repositories.TicketRepository;
@@ -60,5 +61,12 @@ public class CityTest {
     public void list(){
         List<City> cities = cityRepository.findAll();
         System.out.println(cities);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findTheatersByCity(){
+        List<Theater> saved = cityRepository.findTheatersByCity("Medellin");
+        Assertions.assertNotNull(saved);
     }
 }

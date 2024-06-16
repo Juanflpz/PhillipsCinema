@@ -66,4 +66,12 @@ public class PurchaseTest {
         List<Purchase> saved = purchaseRepository.findAll();
         System.out.println(saved);
     }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getTicketsByPurchase(){
+        List<Ticket> tickets = purchaseRepository.getTicketsByPurchase(2);
+        tickets.forEach(System.out::println);
+        Assertions.assertEquals(2, tickets.size());
+    }
 }

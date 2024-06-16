@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.Client;
+import phillips.cinema.entities.ClientCoupon;
+import phillips.cinema.entities.Purchase;
 import phillips.cinema.entities.enums.PersonState;
 import phillips.cinema.repositories.ClientRepository;
 
@@ -67,7 +69,8 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void verifyAuth(){
-        Client saved = clientRepository.findByEmailAndPassword("laura.martinez@example.com", "password345");
+        //Client saved = clientRepository.verifyAuth("laura.martinez@example.com", "password345");
+        Client saved = clientRepository.getByEmailAndPassword("laura.martinez@example.com", "password345");
         System.out.println(saved);
         Assertions.assertNotNull(saved);
     }
@@ -107,5 +110,37 @@ public class ClientTest {
         System.out.println(saved);
     }
 
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findPurchaseByEmail(){
+        List<Purchase> purchases = clientRepository.getPurchasesByEmail("laura.martinez@example.com");
+        purchases.forEach(System.out::println);
+        Assertions.assertNotNull(purchases);
+    }
 
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findCouponsByEmail(){
+        List<ClientCoupon> coupons = clientRepository.getCouponsByEmail("laura.martinez@example.com");
+        coupons.forEach(System.out::println);
+        Assertions.assertNotNull(coupons);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getAllPurchases(){
+        List<Purchase> purchases = clientRepository.getAllPurchases();
+        purchases.forEach(System.out::println);
+        Assertions.assertNotNull(purchases);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getAllPurchasesByClient(){
+        List<Object[]> purchases = clientRepository.getAllPurchasesByClient();
+        purchases.forEach( o ->
+                System.out.println(o[0] + ", " + o[1] + ", " + o[2])
+        );
+        Assertions.assertNotNull(purchases);
+    }
 }

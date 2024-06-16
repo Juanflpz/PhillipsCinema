@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
-import phillips.cinema.entities.Movie;
-import phillips.cinema.entities.MovieTheater;
-import phillips.cinema.entities.Performance;
-import phillips.cinema.entities.Schedule;
+import phillips.cinema.DTO.PerformanceDTO;
+import phillips.cinema.entities.*;
 import phillips.cinema.entities.enums.PerformanceType;
 import phillips.cinema.repositories.PerformanceRepository;
 
@@ -65,5 +63,39 @@ public class PerformanceTest {
     public void list(){
         List<Performance> saved = performanceRepository.findAll();
         System.out.println(saved);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void getMoviePerformance(){
+        String movieName = performanceRepository.getMovieName(1);
+        System.out.println(movieName);
+        Assertions.assertEquals("Spider-Man: No Way Home", movieName);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findMovies(){
+        List<Movie> movies = performanceRepository.findMovies();
+        movies.forEach(System.out::println);
+        Assertions.assertNotNull(movies);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void listPerformances(){
+        List<Object[]> performances = performanceRepository.listPerformances(1);
+        performances.forEach( o ->
+                System.out.println(o[0] + ", " + o[1] + ", " + o[2] + ", " + o[3] + ", " + o[4] + ", " + o[5] + ", " + o[6])
+        );
+        Assertions.assertNotNull(performances);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void listPerformances2(){
+        List<PerformanceDTO> performances = performanceRepository.listPerformances2(1);
+        performances.forEach(System.out::println);
+        Assertions.assertNotNull(performances);
     }
 }
