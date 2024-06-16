@@ -70,7 +70,7 @@ public class PurchaseTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getTicketsByPurchase(){
-        List<Ticket> tickets = purchaseRepository.getTicketsByPurchase(2);
+        List<Ticket> tickets = purchaseRepository.findTicketsByPurchase(2);
         tickets.forEach(System.out::println);
         Assertions.assertEquals(2, tickets.size());
     }

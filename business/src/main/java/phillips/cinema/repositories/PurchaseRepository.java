@@ -12,5 +12,5 @@ import java.util.List;
 public interface PurchaseRepository extends JpaRepository<Purchase, Integer> {
 
     @Query("select p.tickets from Purchase p where p.id = ?1")
-    List<Ticket> getTicketsByPurchase(Integer purchaseId);
+    List<Ticket> findTicketsByPurchase(Integer purchaseID);
 }

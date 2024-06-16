@@ -68,7 +68,7 @@ public class PerformanceTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getMoviePerformance(){
-        String movieName = performanceRepository.getMovieName(1);
+        String movieName = performanceRepository.findMovieName(1);
         System.out.println(movieName);
         Assertions.assertEquals("Spider-Man: No Way Home", movieName);
     }

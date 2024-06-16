@@ -13,7 +13,7 @@ import java.util.List;
 public interface PerformanceRepository extends JpaRepository<Performance, Integer> {
 
     @Query("select p.movie.name from Performance p where p.id = :performanceID")
-    String getMovieName(Integer performanceID);
+    String findMovieName(Integer performanceID);
 
     @Query("select distinct p.movie from Performance p")
     List<Movie> findMovies();

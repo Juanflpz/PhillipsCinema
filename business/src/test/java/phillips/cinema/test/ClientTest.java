@@ -61,7 +61,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getByEmail(){
-        Client saved = clientRepository.findByEmail("laura.martinez@example.com");
+        Client saved = clientRepository.findClientByEmail("laura.martinez@example.com");
         System.out.println(saved);
         Assertions.assertNotNull(saved);
     }
@@ -70,7 +70,7 @@ public class ClientTest {
     @Sql("classpath:dataset.sql")
     public void verifyAuth(){
         //Client saved = clientRepository.verifyAuth("laura.martinez@example.com", "password345");
-        Client saved = clientRepository.getByEmailAndPassword("laura.martinez@example.com", "password345");
+        Client saved = clientRepository.findClientByEmailAndPassword("laura.martinez@example.com", "password345");
         System.out.println(saved);
         Assertions.assertNotNull(saved);
     }
@@ -92,7 +92,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void statePager(){
-        List<Client> saved = clientRepository.getByState(PersonState.ACTIVE, PageRequest.of(0, 2));
+        List<Client> saved = clientRepository.findClientByState(PersonState.ACTIVE, PageRequest.of(0, 2));
         saved.forEach(System.out::println);
     }
 
@@ -113,7 +113,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void findPurchaseByEmail(){
-        List<Purchase> purchases = clientRepository.getPurchasesByEmail("laura.martinez@example.com");
+        List<Purchase> purchases = clientRepository.findPurchasesByEmail("laura.martinez@example.com");
         purchases.forEach(System.out::println);
         Assertions.assertNotNull(purchases);
     }
@@ -121,7 +121,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void findCouponsByEmail(){
-        List<ClientCoupon> coupons = clientRepository.getCouponsByEmail("laura.martinez@example.com");
+        List<ClientCoupon> coupons = clientRepository.findCouponsByEmail("laura.martinez@example.com");
         coupons.forEach(System.out::println);
         Assertions.assertNotNull(coupons);
     }
@@ -129,7 +129,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getAllPurchases(){
-        List<Purchase> purchases = clientRepository.getAllPurchases();
+        List<Purchase> purchases = clientRepository.findAllPurchases();
         purchases.forEach(System.out::println);
         Assertions.assertNotNull(purchases);
     }
@@ -137,7 +137,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getAllPurchasesByClient(){
-        List<Object[]> purchases = clientRepository.getAllPurchasesByClient();
+        List<Object[]> purchases = clientRepository.findAllPurchasesByClient();
         purchases.forEach( o ->
                 System.out.println(o[0] + ", " + o[1] + ", " + o[2])
         );
