@@ -23,4 +23,7 @@ public interface PerformanceRepository extends JpaRepository<Performance, Intege
 
     @Query("select new phillips.cinema.DTO.PerformanceDTO( p.movie.name, p.movie.state, p.movie.image.size, p.movieTheater.id, p.movieTheater.theater.address, p.movieTheater.theater.city.cityName, p.schedule ) from Performance p where p.movie.id = :movieID")
     List<PerformanceDTO> listPerformances2(Integer movieID);
+
+    @Query("select p from Performance p where p.purchases is empty and p.movieTheater.theater.id = ?1")
+    List<Performance> notPurchasedPerformances(Integer theaterID);
 }

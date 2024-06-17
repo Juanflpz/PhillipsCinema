@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.City;
 import phillips.cinema.entities.Theater;
+import phillips.cinema.entities.enums.CouponState;
 import phillips.cinema.repositories.TheaterRepository;
 
 import java.util.List;
@@ -67,5 +68,15 @@ public class TheaterTest {
     public void getTheaterByCity(){
         List<Theater> saved = theaterRepository.findTheatersByCityName("Cali");
         System.out.println(saved);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findTheatersByCity(){
+        List<Object[]> theaters = theaterRepository.findTheatersByCity();
+        theaters.forEach( o ->
+                System.out.println(o[0] + ", " + o[1])
+        );
+        Assertions.assertNotNull(theaters);
     }
 }

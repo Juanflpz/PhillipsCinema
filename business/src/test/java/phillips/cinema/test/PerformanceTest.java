@@ -98,4 +98,12 @@ public class PerformanceTest {
         performances.forEach(System.out::println);
         Assertions.assertNotNull(performances);
     }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void notPurchasedPerformances(){
+        List<Performance> performances = performanceRepository.notPurchasedPerformances(5);
+        performances.forEach(System.out::println);
+        Assertions.assertNotNull(performances);
+    }
 }

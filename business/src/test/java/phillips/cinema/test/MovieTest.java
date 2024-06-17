@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
+import phillips.cinema.DTO.MovieDTO;
+import phillips.cinema.DTO.PerformanceDTO;
 import phillips.cinema.entities.Genre;
 import phillips.cinema.entities.Movie;
 import phillips.cinema.repositories.MovieRepository;
@@ -64,5 +66,21 @@ public class MovieTest {
     public void list(){
         List<Movie> saved = movieRepository.findAll();
         System.out.println(saved);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void searchByFilter(){
+        List<Movie> movies = movieRepository.searchByFilter("an");
+        movies.forEach(System.out::println);
+        Assertions.assertNotNull(movies);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void AdditionalMovieInfo(){
+        List<MovieDTO> info = movieRepository.AdditionalMovieInfo(1);
+        info.forEach(System.out::println);
+        Assertions.assertNotNull(info);
     }
 }

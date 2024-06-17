@@ -41,10 +41,10 @@ VALUES
 
 INSERT INTO client_coupon (id, state, client_id_card, coupon_id)
 VALUES
-    (1, 'AVAILABLE', '1234567890', 1),
-    (2, 'EXPIRED', '0987654321', 2),
-    (3, 'USED', '1234567890', 3),
-    (4, 'AVAILABLE', '0987654321', 4),
+    (1, 'AVAILABLE', '0987654321', 1),
+    (2, 'REDEEMED', '3344556677', 2),
+    (3, 'REDEEMED', '1234567890', 3),
+    (4, 'REDEEMED', '0987654321', 4),
     (5, 'EXPIRED', '3344556677', 5);
 
 INSERT INTO food (id, amount, description, name, state, type)

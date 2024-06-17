@@ -3,10 +3,12 @@ package phillips.cinema.repositories;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import phillips.cinema.entities.Client;
 import phillips.cinema.entities.ClientCoupon;
 import phillips.cinema.entities.Purchase;
+import phillips.cinema.entities.enums.CouponState;
 import phillips.cinema.entities.enums.PersonState;
 
 import java.util.List;
@@ -41,4 +43,7 @@ public interface ClientRepository extends JpaRepository<Client, String> {
 
     @Query("select c.fullName, c.email, p from Client c left join c.purchases p")
     List<Object[]> findAllPurchasesByClient();
+
+    @Query("select count(c.id), cli.idCard, cli.fullName from Client cli join ClientCoupon c ON cli.idCard = c.client.idCard WHERE c.state = :state group by cli.idCard order by count(c.id)")
+    List<Object[]> countRedeemedCoupons(CouponState state);
 }

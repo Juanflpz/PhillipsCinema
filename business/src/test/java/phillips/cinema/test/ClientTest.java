@@ -11,6 +11,7 @@ import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.Client;
 import phillips.cinema.entities.ClientCoupon;
 import phillips.cinema.entities.Purchase;
+import phillips.cinema.entities.enums.CouponState;
 import phillips.cinema.entities.enums.PersonState;
 import phillips.cinema.repositories.ClientRepository;
 
@@ -142,5 +143,15 @@ public class ClientTest {
                 System.out.println(o[0] + ", " + o[1] + ", " + o[2])
         );
         Assertions.assertNotNull(purchases);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void countRedeemedCoupons(){
+        List<Object[]> coupons = clientRepository.countRedeemedCoupons(CouponState.REDEEMED);
+        coupons.forEach( o ->
+                System.out.println(o[0] + ", " + o[1] + ", " + o[2])
+        );
+        Assertions.assertNotNull(coupons);
     }
 }

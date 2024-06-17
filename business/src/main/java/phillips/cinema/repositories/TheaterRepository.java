@@ -12,4 +12,7 @@ public interface TheaterRepository extends JpaRepository<Theater, Integer> {
 
     @Query("select t from Theater t where t.city.cityName = :cityName")
     List<Theater> findTheatersByCityName(String cityName);
+
+    @Query("select count(t), c.cityName from Theater t join t.city c on t.city.id = c.id group by c.cityName order by count(t)")
+    List<Object[]> findTheatersByCity();
 }
