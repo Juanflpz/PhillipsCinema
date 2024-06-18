@@ -7,10 +7,12 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.City;
+import phillips.cinema.entities.Performance;
 import phillips.cinema.entities.Theater;
 import phillips.cinema.entities.enums.CouponState;
 import phillips.cinema.repositories.TheaterRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @DataJpaTest //doesn´t alterate the data
@@ -78,5 +80,15 @@ public class TheaterTest {
                 System.out.println(o[0] + ", " + o[1])
         );
         Assertions.assertNotNull(theaters);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void listPerformancesByTheaterAndDate(){
+        LocalDate date1 = LocalDate.of(2024, 6, 1);
+        LocalDate date2 = LocalDate.of(2024, 6, 30);
+        List<Performance> performances = theaterRepository.listPerformancesByTheaterAndDate(date1, date2, 5);
+        performances.forEach(System.out::println);
+        Assertions.assertNotNull(performances);
     }
 }

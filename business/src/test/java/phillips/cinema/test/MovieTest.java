@@ -83,4 +83,12 @@ public class MovieTest {
         info.forEach(System.out::println);
         Assertions.assertNotNull(info);
     }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findMoviesByGenre(){
+        List<Movie> movies = movieRepository.findMoviesByGenre(1);
+        movies.forEach(System.out::println);
+        Assertions.assertNotNull(movies);
+    }
 }

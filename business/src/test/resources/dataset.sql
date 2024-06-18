@@ -37,7 +37,7 @@ VALUES
     (2, '20% discount on selected products', 20.0, '2024-11-30', 'Discount20', 'EXPIRED', 'AUGUST20'),
     (3, '15% discount on selected products', 15.0, '2024-10-31', 'Discount15', 'AVAILABLE', 'FIRST_PURCHASE'),
     (4, '25% discount on selected products', 25.0, '2025-01-15', 'Discount25', 'EXPIRED', 'FIRST_YEAR'),
-    (5, '5% discount on selected products', 15.0, '2024-09-30', 'Discount15', 'USED', 'HAPPY_BDAY');
+    (5, '5% discount on selected products', 15.0, '2024-09-30', 'Discount15', 'REDEEMED', 'HAPPY_BDAY');
 
 INSERT INTO client_coupon (id, state, client_id_card, coupon_id)
 VALUES
@@ -86,7 +86,7 @@ VALUES
     (3, '2024-06-15', '18:00:00'),
     (4, '2024-06-16', '11:00:00'),
     (5, '2024-06-16', '15:15:00'),
-    (6, '2024-06-16', '19:30:00'),
+    (6, '2024-07-16', '19:30:00'),
     (7, '2024-06-17', '12:00:00'),
     (8, '2024-06-17', '16:45:00'),
     (9, '2024-06-17', '20:00:00');
@@ -98,7 +98,7 @@ VALUES
     (3, 11.75, 'AVAILABLE', 'PERFORMANCE_XD', 3, 3, 3),
     (4, 9.99, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 4, 4, 4),
     (5, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_3D', 5, 5, 5),
-    (6, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 1, 5, 5);
+    (6, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 1, 5, 6);
 
 INSERT INTO payment_method (id, name)
 VALUES
@@ -131,6 +131,42 @@ VALUES
     (3, 3, 'USED', 10, 3, 3, 3),
     (4, 11, 'PURCHASED', 10, 4, 4, 4),
     (5, 21, 'EXPIRED', 11, 5, 5, 2);
+
+INSERT INTO genre (id, name) VALUES
+                             (1, 'Action'),
+                             (2, 'Comedy'),
+                             (3, 'Drama'),
+                             (4, 'Horror'),
+                             (5, 'Sci-Fi'),
+                             (6, 'Adventure'),
+                             (7, 'Romance'),
+                             (8, 'Thriller'),
+                             (9, 'Fantasy'),
+                             (10, 'Animation');
+
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (1, 1);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (1, 2);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (2, 2);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (2, 3);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (3, 3);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (3, 4);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (4, 4);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (4, 5);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (5, 5);
+INSERT INTO genre_movies (genres_id, movies_id) VALUES (5, 1);
+
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (5.99, 2, 1, 1);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (4.50, 1, 2, 1);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (3.75, 3, 3, 2);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (7.00, 2, 4, 2);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (2.99, 4, 5, 3);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (6.50, 1, 1, 3);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (5.75, 3, 2, 4);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (4.20, 2, 3, 4);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (3.60, 1, 4, 5);
+INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (2.50, 2, 5, 5);
+
+
 
 
 

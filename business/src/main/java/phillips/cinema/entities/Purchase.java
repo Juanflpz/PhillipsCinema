@@ -28,8 +28,8 @@ public class Purchase implements Serializable {
     @NonNull
     private Float total;
 
-    @Column(nullable = false)
-    @NonNull
+    //@Column(nullable = false)
+    //@NonNull
     private LocalDateTime purchaseDate;
 
     //RELATIONS------------------------------------------------------

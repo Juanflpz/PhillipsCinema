@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
+import phillips.cinema.DTO.PerformanceDTO;
+import phillips.cinema.DTO.PurchaseClientDTO;
 import phillips.cinema.entities.*;
 import phillips.cinema.repositories.PurchaseRepository;
 
@@ -73,5 +75,13 @@ public class PurchaseTest {
         List<Ticket> tickets = purchaseRepository.findTicketsByPurchase(2);
         tickets.forEach(System.out::println);
         Assertions.assertEquals(2, tickets.size());
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findMostExpensivePurchase(){
+        List<PurchaseClientDTO> purchase = purchaseRepository.findMostExpensivePurchase();
+        purchase.forEach(System.out::println);
+        Assertions.assertNotNull(purchase);
     }
 }

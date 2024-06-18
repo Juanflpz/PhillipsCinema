@@ -3,8 +3,8 @@ package phillips.cinema.repositories;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import phillips.cinema.DTO.PurchaseDTO;
 import phillips.cinema.entities.Client;
 import phillips.cinema.entities.ClientCoupon;
 import phillips.cinema.entities.Purchase;
@@ -46,4 +46,14 @@ public interface ClientRepository extends JpaRepository<Client, String> {
 
     @Query("select count(c.id), cli.idCard, cli.fullName from Client cli join ClientCoupon c ON cli.idCard = c.client.idCard WHERE c.state = :state group by cli.idCard order by count(c.id)")
     List<Object[]> countRedeemedCoupons(CouponState state);
+
+    @Query("select sum(p.total) from Client c join c.purchases p where p.client.idCard = :idCard")
+    Float totalSpent(String idCard);
+
+    /*
+    @Query("select new phillips.cinema.DTO.PurchaseDTO(p.id, p.total, p.purchaseDate, p.performance.id, COALESCE(SUM(pf.price * pf.purchasedUnits), 0), COALESCE(p.performance.price * count(p.tickets), 0)) from Client c join c.purchases p join p.purchaseFoods pf join p.tickets t where c.idCard = :idCard group by p.performance.id")
+    List<PurchaseDTO> listPurchases(String idCard);
+    */
+    @Query("select p.id, p.total, p.purchaseDate, p.performance.id, COALESCE(SUM(pf.price * pf.purchasedUnits), 0), COALESCE(p.performance.price * count(t), 0) from Client c join c.purchases p left join p.purchaseFoods pf left join p.tickets t where c.idCard = :idCard group by p.id, p.total, p.purchaseDate, p.performance.id")
+    List<Object[]> listPurchases(String idCard);
 }

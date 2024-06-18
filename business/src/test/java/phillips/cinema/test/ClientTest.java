@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.jdbc.Sql;
+import phillips.cinema.DTO.PurchaseDTO;
 import phillips.cinema.entities.Client;
 import phillips.cinema.entities.ClientCoupon;
 import phillips.cinema.entities.Purchase;
@@ -16,7 +17,6 @@ import phillips.cinema.entities.enums.PersonState;
 import phillips.cinema.repositories.ClientRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @DataJpaTest //doesn´t alterate the data
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -153,5 +153,24 @@ public class ClientTest {
                 System.out.println(o[0] + ", " + o[1] + ", " + o[2])
         );
         Assertions.assertNotNull(coupons);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void totalSpent(){
+        String idCard = "1234567890";
+        Float total = clientRepository.totalSpent(idCard);
+        System.out.println("The client with ID card " + idCard + " has spent a total of " + total + " on all their purchases");
+        Assertions.assertNotNull(total);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void listPurchases(){
+        List<Object[]> purchases = clientRepository.listPurchases("1234567890");
+        purchases.forEach( o ->
+                System.out.println(o[0] + ", " + o[1] + ", " + o[2] + ", " + o[3] + ", " + o[4] + ", " + o[5])
+        );
+        Assertions.assertNotNull(purchases);
     }
 }
