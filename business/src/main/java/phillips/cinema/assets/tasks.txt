@@ -1,8 +1,4 @@
 5 queries related to the project
 Leer sobre DISTINCT, JOIN, y funciones esenciales en SQL.
 
-DTO for listpurchases of client repository doesnt work
-
-test 8: Cree una consulta que devuelva una lista de compras de un cliente, la respuesta debe incluir el
-        valor total, la fecha de la compra, la función, el valor pagado por la confitería y el valor pagado por
-        las entradas, por separado. Use un DTO para una mejor respuesta.
+10 not optimal: Escriba una consulta que permita obtener la película más vista en una ciudad específica.

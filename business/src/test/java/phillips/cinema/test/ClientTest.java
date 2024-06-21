@@ -164,13 +164,23 @@ public class ClientTest {
         Assertions.assertNotNull(total);
     }
 
+    //NOT USING DTO
     @Test
     @Sql("classpath:dataset.sql")
-    public void listPurchases(){
-        List<Object[]> purchases = clientRepository.listPurchases("1234567890");
+    public void listPurchasesByClient(){
+        List<Object[]> purchases = clientRepository.listPurchasesByClient("1000000001");
         purchases.forEach( o ->
-                System.out.println(o[0] + ", " + o[1] + ", " + o[2] + ", " + o[3] + ", " + o[4] + ", " + o[5])
+                System.out.println(o[0] + ", " + o[1] + ", " + o[2] + ", " + o[3] + ", " + o[4])
         );
+        Assertions.assertNotNull(purchases);
+    }
+
+    //DTO
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void listPurchasesByClient1(){
+        List<PurchaseDTO> purchases = clientRepository.listPurchasesByClient1("1234567890");
+        purchases.forEach(System.out::println);
         Assertions.assertNotNull(purchases);
     }
 }

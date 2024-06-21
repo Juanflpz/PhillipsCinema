@@ -16,46 +16,47 @@ import java.util.List;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, String> {
 
-    //similar to *
-    //@Query("select c from Client c where c.email = :email")
-    @Query("select c from Client c where c.email = ?1")
+    @Query("SELECT c FROM Client c WHERE c.email = ?1")
     Client findClientByEmail(String email);
 
-    @Query("select c from Client c where c.email = :email and c.password = :password")
+    @Query("SELECT c FROM Client c WHERE c.email = :email AND c.password = :password")
     Client verifyAuth(String email, String password);
 
     //it infers the query
     Client findClientByEmailAndPassword(String email, String password);
 
-    @Query("select c from Client c where c.state = :state")
+    @Query("SELECT c FROM Client c WHERE c.state = :state")
     List<Client> findClientByState(PersonState state, Pageable pageable);
 
-    //@Query("select p from Client cli, in (cli.purchases) p where cli.email = :email")
-    //@Query("select p from Purchase p where p.client.email = :email")
-    @Query("select c.purchases from Client c where c.email = :email")
+    @Query("SELECT c.purchases FROM Client c WHERE c.email = :email")
     List<Purchase> findPurchasesByEmail(String email);
 
-    @Query("select c from Client cli join cli.coupons c where cli.email = ?1")
+    @Query("SELECT c FROM Client cli JOIN cli.coupons c WHERE cli.email = ?1")
     List<ClientCoupon> findCouponsByEmail(String email);
 
-    @Query("select p from Client c join c.purchases p")
+    @Query("SELECT p FROM Client c JOIN c.purchases p")
     List<Purchase> findAllPurchases();
 
-    @Query("select c.fullName, c.email, p from Client c left join c.purchases p")
+    @Query("SELECT c.fullName, c.email, p FROM Client c LEFT JOIN c.purchases p")
     List<Object[]> findAllPurchasesByClient();
 
-    @Query("select count(c.id), cli.idCard, cli.fullName from Client cli join ClientCoupon c ON cli.idCard = c.client.idCard WHERE c.state = :state group by cli.idCard order by count(c.id)")
+    @Query("SELECT count(c.id), cli.idCard, cli.fullName FROM Client cli " +
+             "JOIN ClientCoupon c ON cli.idCard = c.client.idCard WHERE c.state = :state " +
+             "GROUP BY cli.idCard ORDER BY count(c.id)")
     List<Object[]> countRedeemedCoupons(CouponState state);
 
-    @Query("select sum(p.total) from Client c join c.purchases p where p.client.idCard = :idCard")
+    @Query("SELECT sum(p.total) FROM Client c JOIN c.purchases p WHERE p.client.idCard = :idCard")
     Float totalSpent(String idCard);
 
-    /*
-    @Query("select new phillips.cinema.DTO.PurchaseDTO(p.id, p.total, p.purchaseDate, p.performance.id, COALESCE(SUM(pf.price * pf.purchasedUnits), 0), COALESCE(p.performance.price * count(p.tickets), 0)) from Client c join c.purchases p join p.purchaseFoods pf join p.tickets t where c.idCard = :idCard group by p.performance.id")
-    List<PurchaseDTO> listPurchases(String idCard);
-    */
+    @Query("SELECT p.total, p.purchaseDate, perf, " +
+            "COALESCE((SELECT SUM(pf.price * pf.purchasedUnits) FROM PurchaseFood pf WHERE pf.purchase = p), 0), " +
+            "COALESCE((SELECT SUM(t.performance.price) FROM Ticket t WHERE t.purchase = p), 0)" +
+            "FROM Purchase p JOIN p.performance perf WHERE p.client.idCard = :idCard")
+    List<Object[]> listPurchasesByClient(String idCard);
 
-    @Query("select p.id, p.total, p.purchaseDate, p.performance.id, COALESCE(SUM(pf.price * pf.purchasedUnits), 0), COALESCE(p.performance.price * count(t), 0) from Client c join c.purchases p left join p.purchaseFoods pf left join p.tickets t where c.idCard = :idCard group by p.id, p.total, p.purchaseDate, p.performance.id")
-    List<Object[]> listPurchases(String idCard);
-    //51 12.1 JPQL Solution
+    @Query("SELECT NEW phillips.cinema.DTO.PurchaseDTO(p.total, p.purchaseDate, perf, " +
+            "COALESCE((SELECT SUM(pf.price * pf.purchasedUnits) FROM PurchaseFood pf WHERE pf.purchase = p), 0), " +
+            "COALESCE((SELECT SUM(t.performance.price) FROM Ticket t WHERE t.purchase = p), 0))" +
+            "FROM Purchase p JOIN p.performance perf WHERE p.client.idCard = :idCard")
+    List<PurchaseDTO> listPurchasesByClient1(String idCard);
 }

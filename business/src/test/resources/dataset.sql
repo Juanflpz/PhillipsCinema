@@ -5,7 +5,8 @@ VALUES
     ('1122334455', 'pedro.ramirez@example.com', 'Pedro Ramirez', 'password789', 'ACTIVE', '1992-01-30', 1),
     ('2233445566', 'ana.sanchez@example.com', 'Ana Sanchez', 'password012', 'ACTIVE', '1988-11-15', 3),
     ('3344556677', 'laura.martinez@example.com', 'Laura Martinez', 'password345', 'INACTIVE', '1995-07-09', 1),
-    ('5543893065', 'pala.velez@example.com', 'Pala Velez', 'password100', 'INACTIVE', '2003-10-23', 5);
+    ('5543893065', 'pala.velez@example.com', 'Pala Velez', 'password100', 'INACTIVE', '2003-10-23', 5),
+    ('1000000001', 'sr.user@example.com', 'Sr User', 'password111', 'ACTIVE', '2005-10-25', 3);
 
 INSERT INTO city (id, city_name, department)
 VALUES
@@ -98,7 +99,8 @@ VALUES
     (3, 11.75, 'AVAILABLE', 'PERFORMANCE_XD', 3, 3, 3),
     (4, 9.99, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 4, 4, 4),
     (5, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_3D', 5, 5, 5),
-    (6, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 1, 5, 6);
+    (6, 13.25, 'NOT_AVAILABLE', 'PERFORMANCE_4D', 1, 5, 6),
+    (7, 9.5, 'AVAILABLE', 'PERFORMANCE_XD', 5, 4, 6);
 
 INSERT INTO payment_method (id, name)
 VALUES
@@ -114,7 +116,8 @@ VALUES
     (2, '2024-06-16 14:00:00', 30.00, '2233445566', 2, 2, 2),
     (3, '2024-06-17 16:45:00', 20.75, '1234567890', 3, 3, 3),
     (4, '2024-06-18 12:00:00', 15.99, '2233445566', 4, 4, 4),
-    (5, '2024-06-19 18:30:00', 35.25, '3344556677', 5, 5, 5);
+    (5, '2024-06-19 18:30:00', 35.25, '3344556677', 5, 5, 5),
+    (6, '2025-06-19 18:30:00', 49.00, '1000000001', 1, 2, 7);
 
 INSERT INTO review (id, description, rate, review_date, client_id_card, movie_id)
 VALUES
@@ -130,7 +133,9 @@ VALUES
     (2, 13, 'PURCHASED', 10, 2, 2, 2),
     (3, 3, 'USED', 10, 3, 3, 3),
     (4, 11, 'PURCHASED', 10, 4, 4, 4),
-    (5, 21, 'EXPIRED', 11, 5, 5, 2);
+    (5, 21, 'EXPIRED', 11, 5, 5, 2),
+    (6, 20, 'PURCHASED', 5, 4, 7, 6),
+    (7, 13, 'PURCHASED', 6, 4, 7, 6);
 
 INSERT INTO genre (id, name) VALUES
                              (1, 'Action'),
@@ -155,16 +160,19 @@ INSERT INTO genre_movies (genres_id, movies_id) VALUES (4, 5);
 INSERT INTO genre_movies (genres_id, movies_id) VALUES (5, 5);
 INSERT INTO genre_movies (genres_id, movies_id) VALUES (5, 1);
 
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (5.99, 2, 1, 1);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (4.50, 1, 2, 1);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (3.75, 3, 3, 2);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (7.00, 2, 4, 2);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (2.99, 4, 5, 3);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (6.50, 1, 1, 3);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (5.75, 3, 2, 4);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (4.20, 2, 3, 4);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (3.60, 1, 4, 5);
-INSERT INTO purchase_food (price, purchased_units, food_id, purchase_id) VALUES (2.50, 2, 5, 5);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (1, 5.99, 2, 1, 1);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (2, 4.50, 1, 2, 1);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (3, 3.75, 3, 3, 2);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (4, 7.00, 2, 4, 2);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (5, 2.99, 4, 5, 3);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (6, 6.50, 1, 1, 3);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (7, 5.75, 3, 2, 4);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (8, 4.20, 2, 3, 4);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (9, 3.60, 1, 4, 5);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (10, 2.50, 2, 5, 5);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (11, 10.00, 1, 4, 6);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (12, 10.00, 1, 5, 6);
+INSERT INTO purchase_food (id, price, purchased_units, food_id, purchase_id) VALUES (13, 10.00, 1, 3, 6);
 
 
 
