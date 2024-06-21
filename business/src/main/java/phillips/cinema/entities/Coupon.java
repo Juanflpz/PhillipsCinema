@@ -52,6 +52,9 @@ public class Coupon implements Serializable {
     @Column(length = 20, nullable = false)
     private CouponState state = CouponState.AVAILABLE;
 
+    @Column(length = 60, nullable = false)
+    private String activationCode;
+
     //RELATIONS------------------------------------------------------
     @OneToMany(mappedBy = "coupon")
     @ToString.Exclude

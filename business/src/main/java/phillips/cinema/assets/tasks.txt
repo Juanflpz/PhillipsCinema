@@ -1,4 +1,3 @@
 5 queries related to the project
-Leer sobre DISTINCT, JOIN, y funciones esenciales en SQL.
 
-10 not optimal: Escriba una consulta que permita obtener la película más vista en una ciudad específica.
+10 not optimal: Write a query that allows you to obtain the most watched movie in a specific city.

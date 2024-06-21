@@ -12,12 +12,13 @@ import phillips.cinema.entities.enums.CouponState;
 import phillips.cinema.entities.enums.PersonState;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, String> {
 
     @Query("SELECT c FROM Client c WHERE c.email = ?1")
-    Client findClientByEmail(String email);
+    Optional<Client> findClientByEmail(String email);
 
     @Query("SELECT c FROM Client c WHERE c.email = :email AND c.password = :password")
     Client verifyAuth(String email, String password);

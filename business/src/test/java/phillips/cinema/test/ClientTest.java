@@ -62,7 +62,7 @@ public class ClientTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void getByEmail(){
-        Client saved = clientRepository.findClientByEmail("laura.martinez@example.com");
+        Client saved = clientRepository.findClientByEmail("laura.martinez@example.com").orElse(null);
         System.out.println(saved);
         Assertions.assertNotNull(saved);
     }
