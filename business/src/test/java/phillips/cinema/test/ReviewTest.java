@@ -63,4 +63,12 @@ public class ReviewTest {
         List<Review> saved = reviewRepository.findAll();
         System.out.println(saved);
     }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findMoviesByGenre(){
+        List<Review> reviews = reviewRepository.findReviewsByRange(3f, 4.5f);
+        reviews.forEach(System.out::println);
+        Assertions.assertNotNull(reviews);
+    }
 }
