@@ -12,6 +12,7 @@ import java.time.LocalTime;
 @Getter
 @ToString
 public class MovieDTO {
+    private String name;
     private LocalTime hour;
     private LocalDate date;
     private Integer id;

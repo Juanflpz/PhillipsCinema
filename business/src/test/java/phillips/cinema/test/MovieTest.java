@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.DTO.MovieDTO;
-import phillips.cinema.DTO.PerformanceDTO;
 import phillips.cinema.entities.Genre;
 import phillips.cinema.entities.Movie;
 import phillips.cinema.repositories.MovieRepository;
@@ -70,8 +69,16 @@ public class MovieTest {
 
     @Test
     @Sql("classpath:dataset.sql")
-    public void searchByFilter(){
-        List<Movie> movies = movieRepository.searchByFilter("an");
+    public void searchAvailableMovieByFilter(){
+        List<Movie> movies = movieRepository.searchAvailableMovieByFilter("an");
+        movies.forEach(System.out::println);
+        Assertions.assertNotNull(movies);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void searchAnyMovieByFilter(){
+        List<Movie> movies = movieRepository.searchAnyMovieByFilter("an");
         movies.forEach(System.out::println);
         Assertions.assertNotNull(movies);
     }
@@ -79,7 +86,7 @@ public class MovieTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void AdditionalMovieInfo(){
-        List<MovieDTO> info = movieRepository.AdditionalMovieInfo(1);
+        List<MovieDTO> info = movieRepository.AdditionalMovieInfo(1, 1);
         info.forEach(System.out::println);
         Assertions.assertNotNull(info);
     }
@@ -90,5 +97,17 @@ public class MovieTest {
         List<Movie> movies = movieRepository.findMoviesByGenre(1);
         movies.forEach(System.out::println);
         Assertions.assertNotNull(movies);
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void findMostViewedMovieInCity(){
+        List<Object[]> movies = movieRepository.findMostViewedMovieInCity(2);
+        List<Object[]> movies1 = new ArrayList<>();
+        movies1.add(movies.get(0));
+        movies1.forEach( o ->
+                System.out.println(o[0] + ", " + o[1])
+        );
+        Assertions.assertNotNull(movies1);
     }
 }

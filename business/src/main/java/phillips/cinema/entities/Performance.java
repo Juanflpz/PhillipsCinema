@@ -48,6 +48,7 @@ public class Performance implements Serializable {
 
     @ManyToOne
     @NonNull
+    @ToString.Exclude
     private MovieTheater movieTheater;
 
     @ManyToOne

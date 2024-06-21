@@ -67,7 +67,7 @@ public class TheaterTest {
 
     @Test
     @Sql("classpath:dataset.sql")
-    public void getTheaterByCity(){
+    public void findTheatersByCityName(){
         List<Theater> saved = theaterRepository.findTheatersByCityName("Cali");
         System.out.println(saved);
     }

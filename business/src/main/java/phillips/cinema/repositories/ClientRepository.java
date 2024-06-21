@@ -54,6 +54,8 @@ public interface ClientRepository extends JpaRepository<Client, String> {
     @Query("select new phillips.cinema.DTO.PurchaseDTO(p.id, p.total, p.purchaseDate, p.performance.id, COALESCE(SUM(pf.price * pf.purchasedUnits), 0), COALESCE(p.performance.price * count(p.tickets), 0)) from Client c join c.purchases p join p.purchaseFoods pf join p.tickets t where c.idCard = :idCard group by p.performance.id")
     List<PurchaseDTO> listPurchases(String idCard);
     */
+
     @Query("select p.id, p.total, p.purchaseDate, p.performance.id, COALESCE(SUM(pf.price * pf.purchasedUnits), 0), COALESCE(p.performance.price * count(t), 0) from Client c join c.purchases p left join p.purchaseFoods pf left join p.tickets t where c.idCard = :idCard group by p.id, p.total, p.purchaseDate, p.performance.id")
     List<Object[]> listPurchases(String idCard);
+    //51 12.1 JPQL Solution
 }
