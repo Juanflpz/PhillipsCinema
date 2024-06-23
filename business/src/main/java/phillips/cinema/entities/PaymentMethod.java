@@ -30,6 +30,7 @@ public class PaymentMethod implements Serializable {
     private List<Purchase> purchases = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    @Builder
     public PaymentMethod(@NonNull String name) {
         this.name = name;
     }

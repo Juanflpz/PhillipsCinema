@@ -32,13 +32,13 @@ VALUES
     (3007344068, 'PERSONAL'),
     (3007344069, 'HOME');
 
-INSERT INTO coupon (id, description, discount, expire_date, name, state, type)
+INSERT INTO coupon (id, activation_code, description, discount, expire_date, name, state, type)
 VALUES
-    (1, '10% discount on selected products', 10.0, '2024-12-31', 'Discount10', 'AVAILABLE', 'BIENVENUE'),
-    (2, '20% discount on selected products', 20.0, '2024-11-30', 'Discount20', 'EXPIRED', 'AUGUST20'),
-    (3, '15% discount on selected products', 15.0, '2024-10-31', 'Discount15', 'AVAILABLE', 'FIRST_PURCHASE'),
-    (4, '25% discount on selected products', 25.0, '2025-01-15', 'Discount25', 'EXPIRED', 'FIRST_YEAR'),
-    (5, '5% discount on selected products', 15.0, '2024-09-30', 'Discount15', 'REDEEMED', 'HAPPY_BDAY');
+    (1, 'AA77EE86', '10% discount on selected products', 10.0, '2024-12-31', 'Discount10', 'AVAILABLE', 'BIENVENUE'),
+    (2, 'ZZZ55518', '20% discount on selected products', 20.0, '2024-11-30', 'Discount20', 'EXPIRED', 'AUGUST20'),
+    (3, 'XYZ97100', '15% discount on selected products', 15.0, '2024-10-31', 'Discount15', 'AVAILABLE', 'FIRST_PURCHASE'),
+    (4, '42464555', '25% discount on selected products', 25.0, '2025-01-15', 'Discount25', 'EXPIRED', 'FIRST_YEAR'),
+    (5, 'AL1B4B44', '5% discount on selected products', 15.0, '2024-09-30', 'Discount15', 'REDEEMED', 'HAPPY_BDAY');
 
 INSERT INTO client_coupon (id, state, client_id_card, coupon_id)
 VALUES

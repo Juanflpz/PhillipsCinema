@@ -62,6 +62,7 @@ public class Purchase implements Serializable {
     private Performance performance;
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Purchase(@NonNull Float total, @NonNull Client client, ClientCoupon clientCoupon, @NonNull PaymentMethod paymentMethod, @NonNull List<Ticket> tickets, List<PurchaseFood> purchaseFoods, @NonNull Performance performance) {
         this.total = total;
         this.client = client;

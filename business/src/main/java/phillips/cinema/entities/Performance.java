@@ -64,6 +64,7 @@ public class Performance implements Serializable {
     private List<Purchase> purchases = new ArrayList<>();
 
     //METHODS----------------------------------------------------------------
+    @Builder
     public Performance(@NonNull PerformanceType type, @NonNull Float price, @NonNull Movie movie, @NonNull MovieTheater movieTheater, @NonNull Schedule schedule) {
         this.type = type;
         this.price = price;

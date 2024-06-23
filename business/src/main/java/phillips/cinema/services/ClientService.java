@@ -12,11 +12,11 @@ public interface ClientService {
 
     Client login(String email, String password) throws Exception;
 
-    Client register(String idCard, String fullName, String email, String newPassword) throws Exception;
+    Client register(Client client) throws Exception;
 
     Client updateClient(Client client) throws Exception;
 
-    Client getClient(String id) throws Exception;
+    Client getClient(String idCard) throws Exception;
 
     void deleteClient(String idCard) throws Exception;
 

@@ -41,6 +41,7 @@ public class City implements Serializable {
     private CityAdmin admin;
 
     //METHODS--------------------------------------------------------
+    @Builder
     public City(@NonNull String cityName, @NonNull Department department) {
         this.cityName = cityName;
         this.department = department;

@@ -47,6 +47,7 @@ public class Review implements Serializable {
     private Movie movie;
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Review(@NonNull String description, @NonNull Float rate, @NonNull Client client, @NonNull Movie movie) {
         this.description = description;
         this.rate = rate;

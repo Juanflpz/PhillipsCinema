@@ -44,6 +44,7 @@ public class Person implements Serializable {
     private PersonState state = PersonState.ACTIVE;
 
     // Constructor ------------------------------------------------------------------------------------
+    @Builder
     public Person(String idCard, String fullName, String email, String password) {
         this.idCard = idCard;
         this.fullName = fullName;

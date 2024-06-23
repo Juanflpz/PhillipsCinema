@@ -8,6 +8,7 @@ import phillips.cinema.repositories.ClientRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientServiceImplementation implements ClientService {
@@ -28,15 +29,15 @@ public class ClientServiceImplementation implements ClientService {
     }
 
     @Override
-    public Client register(String idCard, String fullName, String email, String newPassword) throws Exception {
+    public Client register(Client client) throws Exception {
 
-        Boolean verification = verifyEmail(email);
+        Boolean verification = verifyEmail(client.getEmail());
 
         if(!verification) {
             throw new Exception("Email already in use");
         }
 
-        return clientRepository.save(new Client(idCard, fullName, email, newPassword));;
+        return clientRepository.save(client);
     }
 
     //if equals to null the client doesnt exist, otherwise not
@@ -46,22 +47,40 @@ public class ClientServiceImplementation implements ClientService {
 
     @Override
     public Client updateClient(Client client) throws Exception {
-        return null;
+        Optional<Client> saved = clientRepository.findById(client.getIdCard());
+
+        if(saved.isEmpty()){
+            throw new Exception("Client not found");
+        }
+        //if the client is already registered it updates him
+        return clientRepository.save(client);
     }
 
     @Override
-    public Client getClient(String id) throws Exception {
-        return null;
+    public Client getClient(String idCard) throws Exception {
+        Optional<Client> saved = clientRepository.findById(idCard);
+
+        if(saved.isEmpty()){
+            throw new Exception("Client not found");
+        }
+
+        return saved.get();
     }
 
     @Override
     public void deleteClient(String idCard) throws Exception {
+        Optional<Client> saved = clientRepository.findById(idCard);
 
+        if(saved.isEmpty()){
+            throw new Exception("Client not found");
+        }
+
+        clientRepository.delete(saved.get());
     }
 
     @Override
     public List<Client> getAllClients() throws Exception {
-        return List.of();
+        return clientRepository.findAll();
     }
 
     @Override

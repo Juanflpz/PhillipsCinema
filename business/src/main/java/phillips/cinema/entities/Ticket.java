@@ -47,6 +47,7 @@ public class Ticket implements Serializable {
     private Performance performance;
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Ticket(@NonNull Integer stripe, @NonNull Integer pillar, @NonNull MovieTheater movieTheater, @NonNull Performance performance) {
         this.stripe = stripe;
         this.pillar = pillar;

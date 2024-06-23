@@ -30,6 +30,7 @@ public class Genre implements Serializable {
     private List<Movie> movies = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Genre(@NonNull String name) {
         this.name = name;
     }

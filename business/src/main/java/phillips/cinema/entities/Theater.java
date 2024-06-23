@@ -44,6 +44,7 @@ public class Theater implements Serializable {
     private List<MovieTheater> movieTheaters = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Theater(@NonNull String name, @NonNull String address, @NonNull City city) {
         this.name = name;
         this.address = address;

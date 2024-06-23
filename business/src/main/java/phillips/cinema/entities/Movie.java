@@ -76,6 +76,7 @@ public class Movie implements Serializable {
     private List<Performance> performances = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Movie(@NonNull String name, @NonNull String trailer, @NonNull String synopsis, @NonNull String cast, @NonNull Map<String, String> image, @NonNull List<Genre> genres) {
         this.name = name;
         this.trailer = trailer;

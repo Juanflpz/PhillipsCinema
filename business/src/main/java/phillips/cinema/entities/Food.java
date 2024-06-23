@@ -66,6 +66,7 @@ public class Food implements Serializable {
     private List<Theater> theaters = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Food(@NonNull FoodType type, @NonNull FoodState state, @NonNull String name, @NonNull String description, @NonNull Map<String, String> image, @NonNull Integer amount) {
         this.type = type;
         this.state = state;

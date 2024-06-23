@@ -61,6 +61,7 @@ public class Coupon implements Serializable {
     private List<ClientCoupon> clientCoupons = new ArrayList<>();
 
     //METHODS--------------------------------------------------------
+    @Builder
     public Coupon(@NonNull String name, @NonNull Double discount, @NonNull LocalDate expireDate, @NonNull String description, @NonNull CouponType type) {
         this.name = name;
         this.discount = discount;

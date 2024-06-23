@@ -31,6 +31,7 @@ public class PhoneNumber implements Serializable {
     private Client client;
 
     //METHODS--------------------------------------------------------
+    @Builder
     public PhoneNumber(Long id, @NonNull PhoneType type) {
         this.id = id;
         this.type = type;

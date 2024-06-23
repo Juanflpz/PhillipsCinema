@@ -36,6 +36,7 @@ public class Schedule implements Serializable {
     private List<Performance> performances = new ArrayList<>();
 
     //METHODS-------------------------------------------------------------------
+    @Builder
     public Schedule(@NonNull LocalDate date, @NonNull LocalTime hour) {
         this.date = date;
         this.hour = hour;
