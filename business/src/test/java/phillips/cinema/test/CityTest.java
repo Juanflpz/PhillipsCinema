@@ -53,6 +53,7 @@ public class CityTest {
     @Sql("classpath:dataset.sql")
     public void getById(){
         City city = cityRepository.findById(1).orElse(null);
+        System.out.println(city);
         Assertions.assertNotNull(city);
     }
 

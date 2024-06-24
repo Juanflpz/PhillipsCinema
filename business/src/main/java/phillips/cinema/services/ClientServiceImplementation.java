@@ -4,7 +4,10 @@ import org.springframework.stereotype.Service;
 import phillips.cinema.entities.*;
 import phillips.cinema.entities.enums.CouponType;
 import phillips.cinema.entities.enums.MovieType;
+import phillips.cinema.repositories.ClientCouponRepository;
 import phillips.cinema.repositories.ClientRepository;
+import phillips.cinema.repositories.PurchaseRepository;
+import phillips.cinema.repositories.ReviewRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,10 +16,16 @@ import java.util.Optional;
 @Service
 public class ClientServiceImplementation implements ClientService {
 
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
+    private final ReviewRepository reviewRepository;
+    private final PurchaseRepository purchaseRepository;
+    private final ClientCouponRepository clientCouponRepository;
 
-    public ClientServiceImplementation(ClientRepository clientRepository) {
+    public ClientServiceImplementation(ClientRepository clientRepository, ReviewRepository reviewRepository, PurchaseRepository purchaseRepository, ClientCouponRepository clientCouponRepository) {
         this.clientRepository = clientRepository;
+        this.reviewRepository = reviewRepository;
+        this.purchaseRepository = purchaseRepository;
+        this.clientCouponRepository = clientCouponRepository;
     }
 
     @Override
@@ -176,5 +185,40 @@ public class ClientServiceImplementation implements ClientService {
     @Override
     public List<ClientCoupon> getClientCouponsByState(Integer clientID, CouponType state) throws Exception {
         return List.of();
+    }
+
+    @Override
+    public Review createReview(Review review) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Review updateReview(Review review) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Review getReview(Integer id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Review deleteReview(Integer id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<Review> getReviewsByClient(Integer clientID) throws Exception {
+        return List.of();
+    }
+
+    @Override
+    public List<Review> getReviews() throws Exception {
+        return List.of();
+    }
+
+    @Override
+    public PhoneNumber addPhoneNumber(PhoneNumber phoneNumber) throws Exception {
+        return null;
     }
 }

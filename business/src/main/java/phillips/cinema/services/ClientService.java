@@ -61,6 +61,20 @@ public interface ClientService {
 
     List<ClientCoupon> getClientCouponsByState(Integer clientID, CouponType state) throws Exception;
 
+    Review createReview(Review review) throws Exception;
+
+    Review updateReview(Review review) throws Exception;
+
+    Review getReview(Integer id) throws Exception;
+
+    Review deleteReview(Integer id) throws Exception;
+
+    List<Review> getReviewsByClient(Integer clientID) throws Exception;
+
+    List<Review> getReviews() throws Exception;
+
+    PhoneNumber addPhoneNumber(PhoneNumber phoneNumber) throws Exception;
+
     /*
     CuponCliente obtenerCuponCliente(Integer idCuponCliente) throws Exception;
 
