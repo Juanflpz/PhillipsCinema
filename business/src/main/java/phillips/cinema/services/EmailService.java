@@ -6,6 +6,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Service
 public class EmailService {
@@ -22,7 +24,7 @@ public class EmailService {
             helper.setSubject(subject);
             helper.setText(text, true);
             helper.setFrom("phillips.cinema@gmail.com");
-            //helper.setSentDate(new Date());
+            //helper.setSentDate(new Date(String.valueOf(LocalDate.of(2024, 10, 23))));
 
             javaMailSender.send(msg);
 

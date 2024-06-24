@@ -196,4 +196,29 @@ public class AdminCinemaServiceImplementation implements AdminCinemaService {
     public Genre createGenre(Genre newGenre) throws Exception {
         return null;
     }
+
+    @Override
+    public PaymentMethod getPaymentMethod(Integer id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public PaymentMethod deletePaymentMethod(Integer id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public PaymentMethod updatePaymentMethod(PaymentMethod newPaymentMethod) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<PaymentMethod> getAllPaymentMethods() throws Exception {
+        return List.of();
+    }
+
+    @Override
+    public PaymentMethod createPaymentMethod(PaymentMethod newPaymentMethod) throws Exception {
+        return null;
+    }
 }

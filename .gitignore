@@ -5,6 +5,7 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 business/src/main/resources/application.properties
+business/src/main/java/phillips/cinema/services/CloudinaryService.java
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

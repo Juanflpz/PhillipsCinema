@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import phillips.cinema.entities.Client;
 import phillips.cinema.services.ClientService;
+import phillips.cinema.services.EmailService;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,6 +18,9 @@ public class ClientServiceTest {
 
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private EmailService emailService;
 
     @Test
     @Sql("classpath:dataset.sql")
@@ -93,5 +97,11 @@ public class ClientServiceTest {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void sendEmailTest() {
+        emailService.sendEmail("juanfelipelopez55@gmail.com", "Testing service", "hellooooooooooooooooooooooooo");
     }
 }

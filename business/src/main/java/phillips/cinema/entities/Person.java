@@ -41,7 +41,7 @@ public class Person implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    private PersonState state = PersonState.ACTIVE;
+    private PersonState state = PersonState.INACTIVE;
 
     // Constructor ------------------------------------------------------------------------------------
     @Builder

@@ -20,12 +20,14 @@ public class ClientServiceImplementation implements ClientService {
     private final ReviewRepository reviewRepository;
     private final PurchaseRepository purchaseRepository;
     private final ClientCouponRepository clientCouponRepository;
+    private final EmailService emailService;
 
-    public ClientServiceImplementation(ClientRepository clientRepository, ReviewRepository reviewRepository, PurchaseRepository purchaseRepository, ClientCouponRepository clientCouponRepository) {
+    public ClientServiceImplementation(ClientRepository clientRepository, ReviewRepository reviewRepository, PurchaseRepository purchaseRepository, ClientCouponRepository clientCouponRepository, EmailService emailService) {
         this.clientRepository = clientRepository;
         this.reviewRepository = reviewRepository;
         this.purchaseRepository = purchaseRepository;
         this.clientCouponRepository = clientCouponRepository;
+        this.emailService = emailService;
     }
 
     @Override
@@ -46,6 +48,8 @@ public class ClientServiceImplementation implements ClientService {
             throw new Exception("Email already in use");
         }
 
+        emailService.sendEmail(client.getEmail(), "Activate your account", "Hello, dear "
+                + client.getFullName() + ", in order to access to client extra features you must activate your account on the link below here: ");
         return clientRepository.save(client);
     }
 
@@ -109,6 +113,8 @@ public class ClientServiceImplementation implements ClientService {
 
     @Override
     public Purchase registerPurchase(Purchase purchase) throws Exception {
+        emailService.sendEmail(purchase.getClient().getEmail(), "Purchase at Phillips Cinema",
+                "You purchased ??? tickets for the movie ??? at ??? in our ??? theater located in ???");
         return null;
     }
 
